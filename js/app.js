@@ -19,8 +19,8 @@ var directory = {
 
 directory.Router = Backbone.Router.extend({
 	routes: {
-		"": 'login',
-		"home": "home"
+		//"": 'login',
+		"": "home"
 	}, 
 	
 	initialize: function() {
@@ -37,30 +37,33 @@ directory.Router = Backbone.Router.extend({
 		$('#app').html(directory.loginView.el);
 	},
 	home: function() {
-		directory.headerView = new directory.HeaderView();
+		directory.breadcrumbView = new directory.BreadcrumbView();
+		directory.dashboardtabView = new directory.DashboardTabView();
+		directory.dashboardView = new directory.DashboardView();
+		directory.menubarView = new directory.MenubarView();
 		directory.navigationView = new directory.NavigationView();
-		directory.welcomeView = new directory.WelcomeView();
-		directory.homescreenshotView = new directory.HomeScreenshotView();
-		directory.calendarView = new directory.CalendarView();
-		directory.hometimesheetView = new directory.HomeTimesheetView();1
-		directory.headerView.render();
+		directory.sidebarView = new directory.SidebarView();
+		directory.footerView = new directory.FooterView();
+		directory.breadcrumbView.render();
+		directory.dashboardtabView.render();
+		directory.dashboardView.render();
+		directory.menubarView.render();
 		directory.navigationView.render();
-		directory.welcomeView.render();
-		directory.calendarView.render();
-		directory.homescreenshotView.render();
-		directory.hometimesheetView.render();
-		$('#app').html(directory.headerView.el);
-		$(directory.navigationView.el).appendTo('#app');
-		$(directory.welcomeView.el).appendTo('#first-row');
-		$(directory.homescreenshotView.el).appendTo('#first-row');
-		$(directory.calendarView.el).appendTo('#second-row');
-		$(directory.hometimesheetView.el).appendTo('#second-row');
+		directory.sidebarView.render();
+		directory.footerView.render();
+		$('.container-fluid').html(directory.navigationView.el);
+		$(directory.sidebarView.el).appendTo('#wrapper');
+		$(directory.breadcrumbView.el).appendTo('#content');
+		$(directory.dashboardView.el).appendTo('#content');
+		$(directory.menubarView.el).appendTo('#content');
+		$(directory.dashboardtabView.el).appendTo('#content');
+		$(directory.footerView.el).appendTo('#footer');
 	}
 });
 
 $(document).on("ready", function() {
-	directory.loadTemplates(['LoginView', 'HeaderView', 'NavigationView','WelcomeView','HomeScreenshotView',
-	                         'CalendarView','HomeTimesheetView'],
+	directory.loadTemplates(['BreadcrumbView', 'DashboardTabView', 'DashboardView','MenubarView','NavigationView',
+	                         'SidebarView', 'FooterView'],
 		function() {
 			directory.router = new directory.Router();
 			Backbone.history.start();

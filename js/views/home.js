@@ -1,6 +1,6 @@
-directory.HeaderView = Backbone.View.extend({
+directory.BreadcrumbView = Backbone.View.extend({
 	initialize: function() {
-		console.log('Initialize Header View');
+		console.log('Initialize Breadcrumb View');
 	}, 
 	render: function() {
 		$(this.el).html(this.template());
@@ -8,53 +8,44 @@ directory.HeaderView = Backbone.View.extend({
 	}
 });
 
+
+
+directory.DashboardTabView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize Dashboard Tab View');
+	}, 
+	render: function() {
+		$(this.el).html(this.template());
+		return this;
+	}
+});
+
+
+directory.DashboardView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize Dashboard View');
+	}, 
+	render: function() {
+		$(this.el).html(this.template());
+		return this;
+	}
+});
+
+
+directory.MenubarView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize Menubar View');
+	}, 
+	render: function() {
+		$(this.el).html(this.template());
+		return this;
+	}
+});
 
 directory.NavigationView = Backbone.View.extend({
+	className: 'navbar main',
 	initialize: function() {
 		console.log('Initialize Navigation View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-
-directory.WelcomeView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Welcome View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-
-directory.HomeScreenshotView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Home Screenshot View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-
-directory.CalendarView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Calender View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-directory.HomeTimesheetView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Home Timesheet View');
 	},
 	events: {
 		"click #save": "save"
@@ -67,5 +58,26 @@ directory.HomeTimesheetView = Backbone.View.extend({
 		console.log('save event');
 	}
 });
+
+directory.SidebarView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize Sidebar View');
+	}, 
+	render: function() {
+		$(this.el).html(this.template());
+		return this;
+	}
+});
+
+directory.FooterView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize Footer View');
+	}, 
+	render: function() {
+		$(this.el).html(this.template());
+		return this;
+	}
+});
+
 
 
