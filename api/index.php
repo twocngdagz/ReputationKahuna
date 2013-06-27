@@ -11,11 +11,17 @@ $app->post('/accounts', 'addAcccount');
 $app->post('/login', 'login');
 $app->get('/attendances', 'getAttendances');
 $app->get('/attendance/:id', 'getAttendance');
+$app->get('/companies', 'getCompanies');
 $app->run();
 
 function login() {
 	$user = array("email"=>"admin", "firstName"=>"Clint", "lastName"=>"Berry", "role"=>"user");
 	echo json_encode($user);
+}
+
+function getCompanies() {
+	$company = array("name"=>"Gecko", "location"=>"Firefox 1.0", "reviewsCollected"=>"Win 98", "reviewsPosted"=>"1.8", "lastReview"=>"date");
+	echo json_encode($company);
 }
 
 
