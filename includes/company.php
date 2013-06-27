@@ -10,4 +10,5 @@ class Company extends DatabaseObject {
 	public $collected;
 	public $posted;
 	public $lastposted;
+}
 ?>

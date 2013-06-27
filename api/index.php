@@ -12,6 +12,7 @@ $app->post('/login', 'login');
 $app->get('/attendances', 'getAttendances');
 $app->get('/attendance/:id', 'getAttendance');
 $app->get('/companies', 'getCompanies');
+$app->get('/companies/:id', 'getCompany');
 $app->run();
 
 function login() {
@@ -20,7 +21,12 @@ function login() {
 }
 
 function getCompanies() {
-	$company = array("name"=>"Gecko", "location"=>"Firefox 1.0", "reviewsCollected"=>"Win 98", "reviewsPosted"=>"1.8", "lastReview"=>"date");
+	$company = Company::find_all();
+	echo json_encode($company);
+}
+
+function getCompany($id) {
+	$company = Company::find_by_id($id);
 	echo json_encode($company);
 }
 
