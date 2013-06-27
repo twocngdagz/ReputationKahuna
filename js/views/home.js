@@ -79,5 +79,15 @@ directory.FooterView = Backbone.View.extend({
 	}
 });
 
+directory.CompanyListView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize CompanyList View');
+	}, 
+	render: function() {
+		$(this.el).html(this.template(this.model.attributes));
+		return this;
+	}
+});
+
 
 

@@ -37,13 +37,18 @@ directory.Router = Backbone.Router.extend({
 		$('#app').html(directory.loginView.el);
 	},
 	home: function() {
-		
+		var companyList = new directory.CompanyCollection();
+        companyList.fetch({
+            success: function (data) {
+                console.log(new directory.CompanyListView({model: data}).render().el);
+            }
+        });
 	}
 });
 
 $(document).on("ready", function() {
 	directory.loadTemplates(['BreadcrumbView', 'DashboardTabView', 'DashboardView','MenubarView','NavigationView',
-	                         'SidebarView', 'FooterView','CompanyList'],
+	                         'SidebarView', 'FooterView','CompanyListView'],
 		function() {
 			directory.router = new directory.Router();
 			Backbone.history.start();
