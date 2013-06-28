@@ -40,7 +40,7 @@ directory.Router = Backbone.Router.extend({
 		var companyList = new directory.CompanyCollection();
         companyList.fetch({
             success: function (data) {
-                console.log(new directory.CompanyListView({model: data}).render().el);
+                $('#companyList').html(new directory.CompanyListView({model: data}).render().el);
             }
         });
 	}

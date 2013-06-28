@@ -80,11 +80,15 @@ directory.FooterView = Backbone.View.extend({
 });
 
 directory.CompanyListView = Backbone.View.extend({
+	tagName: 'tr',
+	className: 'gradeX',
 	initialize: function() {
 		console.log('Initialize CompanyList View');
 	}, 
 	render: function() {
-		$(this.el).html(this.template(this.model.attributes));
+		 _.each(this.model.models, function (company) {
+            $(this.el).append(this.template(company.attributes));
+        }, this);	
 		return this;
 	}
 });
