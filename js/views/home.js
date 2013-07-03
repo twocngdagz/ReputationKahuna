@@ -83,12 +83,20 @@ directory.CompanyListView = Backbone.View.extend({
 	tagName: '<tbody>',
 	initialize: function() {
 		console.log('Initialize CompanyList View');
-	}, 
+	},
+	events: {
+		"click a": "editModal"
+	},
 	render: function() {
 		_.each(this.model.models, function (company) {
 			$(this.el).append(this.template(company.attributes))
 		}, this);
 		return this;
+	},
+	
+	editModal: function(e) {
+		e.preventDefault();
+		console.log("edit");
 	}
 });
 
