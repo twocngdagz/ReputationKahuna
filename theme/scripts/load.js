@@ -39,6 +39,7 @@ $(function()
 	$(window).resize();
 	
 	var layout = $.cookie('layout') ? $.cookie('layout') : 'fixed';
+	console.log(layout);
 	
 	if (layout == 'fixed' && !$('.container-fluid:first').is('.fixed'))
 		$('.container-fluid:first').addClass('fixed');
@@ -72,18 +73,6 @@ $(function()
 	/* wysihtml5 */
 	if ($('textarea.wysihtml5').size() > 0)
 		$('textarea.wysihtml5').wysihtml5();
-	
-	/* DataTables */
-	if ($('.dynamicTable').size() > 0)
-	{
-		$('.dynamicTable').dataTable({
-			"sPaginationType": "bootstrap",
-			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-			"oLanguage": {
-				"sLengthMenu": "_MENU_ records per page"
-			}
-		});
-	}
 	
 	/*
 	 * Helper function for JQueryUI Sliders Create event

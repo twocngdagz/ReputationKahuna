@@ -60,7 +60,7 @@
 	</head>
 	<body>
 	
-		<div class="container-fluid fixed">
+		<div class="container-fluid">
 			
 			<div class="navbar main">
 				<a href="index.php" class="appbrand"><span>Reputation</span></a>			
@@ -145,7 +145,7 @@
 										<ul>
 											<li class="active"><a class="glyphicons check" href="#dataTableSourcesTab" data-toggle="tab"><i></i>Active</a></li>
 											<li><a class="glyphicons unchecked" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Inactive</a></li>
-											<li><a class="glyphicons removed_2" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Deleted</a></li>
+											<li><a class="glyphicons no-js remove" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Deleted</a></li>
 										</ul>
 									</div>
 									<div class="widget-body">
@@ -166,57 +166,7 @@
 																	<th>Last Review Posted</th>
 																</tr>
 															</thead>
-															<tbody>
-																<tr class="gradeX">
-																	<td>Trident</td>
-																	<td>Internet Explorer 4.0</td>
-																	<td>Win 95+</td>
-																	<td class="center">4</td>
-																	<td class="center">X</td>
-																</tr>
-																<tr class="gradeC">
-																	<td>Trident</td>
-																	<td>Internet Explorer 5.0</td>
-																	<td>Win 95+</td>
-																	<td class="center">5</td>
-																	<td class="center">C</td>
-																</tr>
-																<tr class="gradeA">
-																	<td>Trident</td>
-																	<td>Internet Explorer 5.5</td>
-																	<td>Win 95+</td>
-																	<td class="center">5.5</td>
-																	<td class="center">A</td>
-																</tr>
-																<tr class="gradeA">
-																	<td>Trident</td>
-																	<td>Internet Explorer 6</td>
-																	<td>Win 98+</td>
-																	<td class="center">6</td>
-																	<td class="center">A</td>
-																</tr>
-																<tr class="gradeA">
-																	<td>Trident</td>
-																	<td>Internet Explorer 7</td>
-																	<td>Win XP SP2+</td>
-																	<td class="center">7</td>
-																	<td class="center">A</td>
-																</tr>
-																<tr class="gradeA">
-																	<td>Trident</td>
-																	<td>AOL browser (AOL desktop)</td>
-																	<td>Win XP</td>
-																	<td class="center">6</td>
-																	<td class="center">A</td>
-																</tr>
-																<tr class="gradeA">
-																	<td>Gecko</td>
-																	<td>Firefox 1.0</td>
-																	<td>Win 98+ / OSX.2+</td>
-																	<td class="center">1.7</td>
-																	<td class="center">A</td>
-																</tr>
-															</tbody>
+															
 														</table>
 													</div>
 												</div>
@@ -233,6 +183,20 @@
 					</div>
 				</div><!-- End Content -->
 			</div><!-- End Wrapper -->
+            <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Modal header</h3>
+              </div>
+              <div class="modal-body">
+                <p>One fine body…</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
 			
 			<!-- Sticky Footer -->
 			<div id="footer">
