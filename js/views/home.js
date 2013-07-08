@@ -1,102 +1,77 @@
-directory.BreadcrumbView = Backbone.View.extend({
+directory.CompanyDialogView = Backbone.View.extend({
+	
 	initialize: function() {
-		console.log('Initialize Breadcrumb View');
+		console.log('Initialize Dialog View');
 	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-
-
-directory.DashboardTabView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Dashboard Tab View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-
-directory.DashboardView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Dashboard View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-
-directory.MenubarView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Menubar View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-directory.NavigationView = Backbone.View.extend({
-	className: 'navbar main',
-	initialize: function() {
-		console.log('Initialize Navigation View');
-	},
+	
 	events: {
-		"click #save": "save"
-	}, 
+		"click #save-action": "save"
+	},
+	
 	render: function() {
-		$(this.el).html(this.template());
+		this.$el.html(this.template(this.model.attributes));
+		$('#myModalLabel').text('Company');
+		this.$el.find('#lastposted').datepicker().on('changeDate', function(e){
+			$('#lastposted').datepicker('hide');
+		});
 		return this;
 	},
-	save: function() {
-		console.log('save event');
+	
+	save: function(e) {
+		console.log('save dialog company');
+		if (null == this.model.id) {
+			directory.CompanyCollection.create(this.model);
+		} else {
+			this.model.save();
+		}
+		this.remove();
 	}
 });
 
-directory.SidebarView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Sidebar View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-directory.FooterView = Backbone.View.extend({
-	initialize: function() {
-		console.log('Initialize Footer View');
-	}, 
-	render: function() {
-		$(this.el).html(this.template());
-		return this;
-	}
-});
-
-directory.CompanyListView = Backbone.View.extend({
-	tagName: '<tbody>',
+directory.CompanyItemView = Backbone.View.extend({
+	tagName: 'tr',
 	initialize: function() {
 		console.log('Initialize CompanyList View');
+		this.render = _.bind(this.render, this);
+		this.model.bind('change', this.render)
 	},
 	events: {
 		"click a": "editModal"
 	},
 	render: function() {
-		_.each(this.model.models, function (company) {
-			$(this.el).append(this.template(company.attributes))
-		}, this);
+		$(this.el).append(this.template(this.model.attributes))
 		return this;
 	},
 	
 	editModal: function(e) {
 		e.preventDefault();
-		console.log("edit");
+		$('#myModal').html(new directory.CompanyDialogView({model: this.model}).render().el);	
+	}
+});
+
+directory.CompanyListView = Backbone.View.extend({
+	
+	initialize: function() {
+		_(this).bindAll('add');
+		this._companies = [];
+		this.collection.each(this.add);
+		this.collection.bind('add', this.add);
+	},
+	
+	render: function() {
+		this._rendered = true;
+		this.$el.empty();
+		_(this._companies).each(function(item) {
+			$('#companies').append(item.render().el);
+		});
+	},
+	
+	add: function(company) {
+		var companyItem = new directory.CompanyItemView({model: company});
+		this._companies.push(companyItem);
+		if(this._rendered) {
+			$(this.el).append(companyItem.render().el);
+		}
 	}
 });
 

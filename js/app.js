@@ -39,8 +39,8 @@ directory.Router = Backbone.Router.extend({
 	home: function() {
 		var companyList = new directory.CompanyCollection();
         companyList.fetch({
-            success: function (data) {
-				$(new directory.CompanyListView({model: data}).render().el).appendTo('table');
+            success: function () {
+				$(new directory.CompanyListView({collection: companyList}).render());
 				if ($('.dynamicTable').size() > 0)
 				{
 					$('.dynamicTable').dataTable({
@@ -57,8 +57,7 @@ directory.Router = Backbone.Router.extend({
 });
 
 $(document).on("ready", function() {
-	directory.loadTemplates(['BreadcrumbView', 'DashboardTabView', 'DashboardView','MenubarView','NavigationView',
-	                         'SidebarView', 'FooterView','CompanyListView'],
+	directory.loadTemplates(['CompanyItemView', 'CompanyDialogView'],
 		function() {
 			directory.router = new directory.Router();
 			Backbone.history.start();

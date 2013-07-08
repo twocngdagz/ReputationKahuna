@@ -26,6 +26,9 @@
 		
 		<!-- Glyphicons -->
 		<link rel="stylesheet" href="theme/css/glyphicons.css" />
+        
+        <!-- bootstrap datepicket -->
+        <link rel="stylesheet" href="theme/css/datepicker.css" />
 		
 		<!-- Bootstrap Extended -->
 		<link rel="stylesheet" href="bootstrap/extend/bootstrap-select/bootstrap-select.css" />
@@ -45,6 +48,7 @@
 		
 		<!-- Theme -->
 		<link rel="stylesheet/less" href="theme/less/style.less" />
+
 		
 		<!-- FireBug Lite -->
 		<!-- <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script> -->
@@ -167,6 +171,8 @@
                                                                     <th>Actions</th>
 																</tr>
 															</thead>
+                                                            <tbody id="companies">
+                                                            </tbody>
 														</table>
 													</div>
 												</div>
@@ -183,19 +189,7 @@
 					</div>
 				</div><!-- End Content -->
 			</div><!-- End Wrapper -->
-            <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Modal header</h3>
-              </div>
-              <div class="modal-body">
-                <p>One fine body…</p>
-              </div>
-              <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn btn-primary">Save changes</button>
-              </div>
             </div>
 			
 			<!-- Sticky Footer -->
@@ -243,6 +237,9 @@
 		
 		<!-- Bootstrap Script -->
 		<script src="bootstrap/js/bootstrap.min.js"></script>
+        
+        <!-- bootstrap datepicker -->
+        <script src="theme/scripts/bootstrap-datepicker.js"></script>
 		
 		<!-- Bootstrap Extended -->
 		<script src="bootstrap/extend/bootstrap-select/bootstrap-select.js"></script>
@@ -258,7 +255,7 @@
 		<script src="js/app.js" text="text/javascript"></script>
 		<script src="js/models/company.js" text="text/javascript"></script>
 		<script src="js/views/home.js" text="text/javascript"></script>
-
+        
 		<!-- Custom Onload Script -->
 		<script src="theme/scripts/load.js"></script>
 		
