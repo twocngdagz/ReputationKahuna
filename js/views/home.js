@@ -5,12 +5,14 @@ directory.CompanyDialogView = Backbone.View.extend({
 	}, 
 	
 	events: {
-		"click #save-action": "save"
+		"click #save-action": "save",
+		"change input": "modify",
+		"click #close-action": "close"
 	},
 	
 	render: function() {
 		this.$el.html(this.template(this.model.attributes));
-		$('#myModalLabel').text('Company');
+		this.$el.find('#myModalLabel').text('Company');
 		this.$el.find('#lastposted').datepicker().on('changeDate', function(e){
 			$('#lastposted').datepicker('hide');
 		});
@@ -24,7 +26,16 @@ directory.CompanyDialogView = Backbone.View.extend({
 		} else {
 			this.model.save();
 		}
-		this.remove();
+		$('#myModal').modal('hide');
+	}, 
+	modify: function(e) {
+		var attribute = {};
+		attribute[e.currentTarget.name] = e.currentTarget.value;
+		console.log(attribute);
+		this.model.set(attribute);
+	},
+	close: function() {
+		$('#myModal').modal('hide');
 	}
 });
 
@@ -39,7 +50,7 @@ directory.CompanyItemView = Backbone.View.extend({
 		"click a": "editModal"
 	},
 	render: function() {
-		$(this.el).append(this.template(this.model.attributes))
+		$(this.el).html(this.template(this.model.attributes))
 		return this;
 	},
 	
@@ -74,7 +85,3 @@ directory.CompanyListView = Backbone.View.extend({
 		}
 	}
 });
-
-
-
-
