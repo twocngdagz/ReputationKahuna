@@ -1,3 +1,121 @@
+directory.LoginView = Backbone.View.extend({
+	id: 'login',
+	initialize: function() {
+		console.log('Initialize Login View');
+	},
+	events: {
+		"click #loginButton": "login"
+	},
+	render: function() {
+		this.$el.html(this.template());
+		return this;
+	}, 
+	login: function(event) {
+		event.preventDefault();
+		var url = 'api/login';
+		var formValues = {
+				user: $('#login_user').val(),
+				pass: $('#login_password').val()
+			};
+		console.log('AJAX started');
+		$.ajax({
+			url: url,
+			type: 'POST',
+			dataType: 'json',
+			data: formValues,
+			success: function(data) {
+				console.log('Success');
+				directory.router.navigate('/home', {trigger:true});
+				if(data.error) {
+					console.log(data.error.text);
+				}
+			}
+		});
+	}
+});
+
+directory.DialogView = Backbone.View.extend({
+	className: 'modal hide fade in',
+	id: 'myModal',
+	initialize: function() {
+		console.log('Initialized Dialog View');
+	},
+	render: function() {
+		return this;
+	}
+});
+
+directory.FooterView = Backbone.View.extend({
+	id: 'footer',
+	initialize: function() {
+		console.log('Initialize Footer View');
+	},
+	render: function() {
+		this.$el.html(this.template());
+		return this;
+	}
+});
+
+directory.WrapperView = Backbone.View.extend({
+	id: 'wrapper',
+	initialize: function() {
+		console.log('Initialize Wrapper View');
+	},
+	render: function() {
+		var menuBarView = new directory.MenubarView();
+		var contentView = new directory.ContentView();
+		this.$el.html(menuBarView.render().el);
+		$(contentView.render().el).appendTo(this.$el);
+		return this;
+	}
+});
+
+directory.NavigationView = Backbone.View.extend({
+	className: 'navbar main',
+	events: {
+		"click .btn-navbar": "toggle"
+	},
+	initialize: function() {
+		console.log('Initialize Navigation View');
+	},
+	render: function() {
+		this.$el.html(this.template());
+		return this;
+	},
+	toggle: function() {
+		console.log('toggle');
+		$('.container-fluid:first').toggleClass('menu-hidden');
+		$('#menu').toggleClass('hidden-phone');
+		
+		if (typeof masonryGallery != 'undefined') 
+			masonryGallery();
+	}
+});
+
+directory.MenubarView = Backbone.View.extend({
+	className: 'hidden-phone',
+	id: 'menu',
+	initialize: function() {
+		console.log('Initialize Menu View');
+	},
+	render: function() {
+		this.$el.html(this.template());
+		return this;
+	}
+});
+
+directory.ContentView = Backbone.View.extend({
+	id: 'content',
+	initialize: function() {
+		console.log('Initialize Content View');
+	},
+	render: function() {
+		this.$el.html(this.template());
+		return this;
+	}
+});
+
+
 directory.CompanyDialogView = Backbone.View.extend({
 	
 	initialize: function() {

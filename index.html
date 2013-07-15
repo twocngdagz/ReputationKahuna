@@ -20,6 +20,7 @@
 		<link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet" />
 		<link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css" rel="stylesheet" />
 		<link href="bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" />
+        <link rel="stylesheet/less" href="theme/css/bootstrap-modal.css" />
 		
 		<!-- JQueryUI v1.9.2 -->
 		<link rel="stylesheet" href="theme/scripts/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css" />
@@ -48,6 +49,7 @@
 		
 		<!-- Theme -->
 		<link rel="stylesheet/less" href="theme/less/style.less" />
+        
 
 		
 		<!-- FireBug Lite -->
@@ -65,143 +67,8 @@
 	<body>
 	
 		<div class="container-fluid">
-			
-			<div class="navbar main">
-				<a href="index.php" class="appbrand"><span>Reputation</span></a>			
-				<button type="button" class="btn btn-navbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-				</button>
-							
-				<ul class="topnav pull-right">				
-					<li class="account">
-						<a data-toggle="dropdown" href="form_demo.php" class="glyphicons logout lock"><span class="hidden-phone text">mosaicpro</span><i></i></a>
-						<ul class="dropdown-menu pull-right">
-							<li><a href="form_demo.php" class="glyphicons cogwheel">Settings<i></i></a></li>
-							<li><a href="form_demo.php" class="glyphicons camera">My Photos<i></i></a></li>
-							<li class="highlight profile">
-								<span>
-									<span class="heading">Profile <a href="form_demo.php" class="pull-right">edit</a></span>
-									<span class="img"></span>
-									<span class="details">
-										<a href="form_demo.php">Mosaic Pro</a>
-										contact@mosaicpro.biz
-									</span>
-									<span class="clearfix"></span>
-								</span>
-							</li>
-							<li>
-								<span>
-									<a class="btn btn-default btn-small pull-right" style="padding: 2px 10px; background: #fff;" href="login.php">Sign Out</a>
-								</span>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			
-			<div id="wrapper">
-				<div id="menu" class="hidden-phone">
-					<div id="menuInner">
-						<div id="search">
-							<input type="text" placeholder="Quick search ..." />
-							<button class="glyphicons search"><i></i></button>
-						</div>
-						<ul>
-							<li class="heading"><span></span></li>
-							<li class="glyphicons home active"><a href="index.php"><i></i><span>Dashboard</span></a></li>
-							<li class="glyphicons cogwheels"><a href="ui.php"><i></i><span>Account Information</span></a></li>
-						</ul>				
-					</div>
-				</div>
-				<div id="content">
-					<ul class="breadcrumb">
-						<li><a href="index.php" class="glyphicons home"><i></i> AdminPlus</a></li>
-						<li class="divider"></li>
-						<li>Dashboard</li>
-					</ul>
-					<div class="separator"></div>
-
-					<div class="heading-buttons">
-						<h3 class="glyphicons display"><i></i> Dashboard</h3>
-						<div class="buttons pull-right">
-							<a href="" class="btn btn-default btn-icon glyphicons edit"><i></i> Edit</a>
-						</div>
-						<div class="clearfix" style="clear: both;"></div>
-					</div>
-					<div class="separator"></div>
-
-					<div class="menubar">
-						<ul>
-							<li><a href="">Button 1</a></li>
-							<li><a href="">Button 2</a></li>
-							<li class="divider"></li>
-							<li><a href="">Export</a></li>
-						</ul>
-					</div>
-
-					<div class="separator bottom"></div>
-
-					<div class="well">
-						<div class="row-fluid">
-							<div class="span12">
-								<div class="widget widget-2 widget-tabs">
-									<div class="widget-head">
-										<ul>
-											<li class="active"><a class="glyphicons check" href="#dataTableSourcesTab" data-toggle="tab"><i></i>Active</a></li>
-											<li><a class="glyphicons unchecked" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Inactive</a></li>
-											<li><a class="glyphicons no-js remove" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Deleted</a></li>
-										</ul>
-									</div>
-									<div class="widget-body">
-										<div class="tab-content">
-											<div class="tab-pane active" id="dataTableSourcesTab">
-												<div class="widget widget-gray widget-body-white">
-													<div class="widget-head">
-														<h4 class="heading">Companies</h4>
-													</div>
-													<div class="widget-body" style="padding: 10px 10px 0 10px;">
-														<table class="dynamicTable table table-striped table-bordered table-condensed">
-															<thead>
-																<tr>
-																	<th>Company Name</th>
-																	<th>Location</th>
-																	<th>Reviews Collected</th>
-																	<th>Reviews Posted</th>
-																	<th>Last Review Posted</th>
-                                                                    <th>Actions</th>
-																</tr>
-															</thead>
-                                                            <tbody id="companies">
-                                                            </tbody>
-														</table>
-													</div>
-												</div>
-											</div>
-											<div class="tab-pane" id="dataTableRefferingTab">
-												<div id="dataTableReffering"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- <a href="" class="btn btn-block btn-icon right btn-inverse glyphicons cardio" style="margin-bottom: 20px;"><i></i> Full Analytics</a> -->
-							</div>
-						</div>
-					</div>
-				</div><!-- End Content -->
-			</div><!-- End Wrapper -->
             <div id="myModal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            </div>
-			
-			<!-- Sticky Footer -->
-			<div id="footer">
-				<div class="wrap">
-					<ul>
-						<li class="active"><span data-toggle="layout" data-layout="fixed" class="glyphicons show_big_thumbnails text" title=""><i></i><span class="hidden-phone">Fixed layout</span></span></li>
-						<li><span data-toggle="layout" data-layout="fluid" class="glyphicons show_thumbnails text" title=""><i></i><span class="hidden-phone">Fluid layout</span></span></li>
-						<li><a href="documentation.php" class="glyphicons circle_question_mark text" title=""><i></i><span class="hidden-phone">Documentation</span></a></li>
-					</ul>
-				</div>
-			</div>			
+            </div>			
 		</div>
 		
 		<!-- JQueryUI v1.9.2 -->
@@ -250,14 +117,18 @@
 		<script src="bootstrap/extend/bootbox.js" type="text/javascript"></script>
 		<script src="bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js" type="text/javascript"></script>
 		<script src="bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js" type="text/javascript"></script>
+        <script src="theme/scripts/bootstrap-modalmanager.js"></script>
+        <script src="theme/scripts/bootstrap-modal.js"></script>
 		<script src="library/underscore-min.js" type="text/javascript"></script>
 		<script src="library/backbone.js" type="text/javascript"></script>
 		<script src="js/app.js" text="text/javascript"></script>
 		<script src="js/models/company.js" text="text/javascript"></script>
 		<script src="js/views/home.js" text="text/javascript"></script>
         
-		<!-- Custom Onload Script -->
+         <!-- Custom Onload Script -->
 		<script src="theme/scripts/load.js"></script>
+        
+		
 		
 		<script>
 		//Load the Visualization API and the piechart package.

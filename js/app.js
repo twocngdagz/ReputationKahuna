@@ -19,12 +19,13 @@ var directory = {
 
 directory.Router = Backbone.Router.extend({
 	routes: {
-		//"": 'login',
-		"": "home"
+		"": 'login',
+		"home": "home"
 	}, 
 	
 	initialize: function() {
 		console.log('Router');
+		var isLogin = false;
 	},
 	
 	login: function() {
@@ -34,10 +35,17 @@ directory.Router = Backbone.Router.extend({
 		} else {
 			directory.loginView.delegateEvents();
 		}
-		$('#app').html(directory.loginView.el);
+		$('.container-fluid').html(directory.loginView.el);
+		$('.container-fluid').addClass('login');
+		$('.uniformjs').find("select, input, button, textarea").uniform();
 	},
 	home: function() {
+		$('.container-fluid').removeClass('login');
 		var companyList = new directory.CompanyCollection();
+		$('.container-fluid').html(new directory.NavigationView().render().el);
+		$(new directory.WrapperView().render().el).appendTo('.container-fluid');
+		$(new directory.DialogView().render().el).appendTo('.container-fluid');
+		$(new directory.FooterView().render().el).appendTo('.container-fluid');
         companyList.fetch({
             success: function () {
 				$(new directory.CompanyListView({collection: companyList}).render());
@@ -57,7 +65,7 @@ directory.Router = Backbone.Router.extend({
 });
 
 $(document).on("ready", function() {
-	directory.loadTemplates(['CompanyItemView', 'CompanyDialogView'],
+	directory.loadTemplates(['CompanyItemView', 'CompanyDialogView', 'NavigationView', 'MenubarView', 'ContentView', 'FooterView', 'LoginView'],
 		function() {
 			directory.router = new directory.Router();
 			Backbone.history.start();
