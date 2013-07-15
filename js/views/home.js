@@ -120,12 +120,13 @@ directory.CompanyDialogView = Backbone.View.extend({
 	
 	initialize: function() {
 		console.log('Initialize Dialog View');
+		directory.previous_attr = {};
 	}, 
 	
 	events: {
 		"click #save-action": "save",
 		"change input": "modify",
-		"click #close-action": "close"
+		"click #close-action, .close": "close"
 	},
 	
 	render: function() {
@@ -140,7 +141,7 @@ directory.CompanyDialogView = Backbone.View.extend({
 	save: function(e) {
 		console.log('save dialog company');
 		if (null == this.model.id) {
-			directory.CompanyCollection.create(this.model);
+			directory.companyList.create(this.model);
 		} else {
 			this.model.save();
 		}
@@ -149,10 +150,13 @@ directory.CompanyDialogView = Backbone.View.extend({
 	modify: function(e) {
 		var attribute = {};
 		attribute[e.currentTarget.name] = e.currentTarget.value;
-		console.log(attribute);
+		directory.previous_attr[e.currentTarget.name] = this.model.attributes[e.currentTarget.name];
+		console.log(directory.previous_attr);
 		this.model.set(attribute);
 	},
 	close: function() {
+		console.log('Close');
+		this.model.set(directory.previous_attr);
 		$('#myModal').modal('hide');
 	}
 });
@@ -162,19 +166,25 @@ directory.CompanyItemView = Backbone.View.extend({
 	initialize: function() {
 		console.log('Initialize CompanyList View');
 		this.render = _.bind(this.render, this);
-		this.model.bind('change', this.render)
+		this.model.bind('change', this.render);
 	},
 	events: {
-		"click a": "editModal"
+		"click #editCompany": "editModal",
+		"click #addCompany": "addModal"
 	},
 	render: function() {
-		$(this.el).html(this.template(this.model.attributes))
+		$(this.el).html(this.template(this.model.attributes));
 		return this;
 	},
 	
 	editModal: function(e) {
 		e.preventDefault();
 		$('#myModal').html(new directory.CompanyDialogView({model: this.model}).render().el);	
+	},
+	addModal: function(e) {
+		e.preventDefault();
+		console.log('add Clicke');
+		$('#myModal').html(new directory.CompanyDialogView({model: new directory.Company()}).render().el);
 	}
 });
 

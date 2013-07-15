@@ -41,14 +41,14 @@ directory.Router = Backbone.Router.extend({
 	},
 	home: function() {
 		$('.container-fluid').removeClass('login');
-		var companyList = new directory.CompanyCollection();
+		directory.companyList = new directory.CompanyCollection();
 		$('.container-fluid').html(new directory.NavigationView().render().el);
 		$(new directory.WrapperView().render().el).appendTo('.container-fluid');
 		$(new directory.DialogView().render().el).appendTo('.container-fluid');
 		$(new directory.FooterView().render().el).appendTo('.container-fluid');
-        companyList.fetch({
+		directory.companyList.fetch({
             success: function () {
-				$(new directory.CompanyListView({collection: companyList}).render());
+				$(new directory.CompanyListView({collection: directory.companyList}).render());
 				if ($('.dynamicTable').size() > 0)
 				{
 					$('.dynamicTable').dataTable({
