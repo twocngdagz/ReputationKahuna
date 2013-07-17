@@ -10,11 +10,18 @@ $app->get('/companies', 'getCompanies');
 $app->post('/companies', 'addCompanies');
 $app->get('/companies/:id', 'getCompany');
 $app->put('/companies/:id', 'updateCompany');
+$app->delete('/companies/:id', 'deleteCompany');
 $app->run();
 
 function login() {
 	$request = \Slim\Slim::getInstance()->request();
 	echo json_encode($request);
+}
+
+function deleteCompany($id) {
+	$m_company =Company::find_by_id($id);
+	$m_company->delete();
+	echo "{'delete': 'true'}";
 }
 
 function getCompanies() {

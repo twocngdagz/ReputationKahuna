@@ -170,7 +170,8 @@ directory.CompanyItemView = Backbone.View.extend({
 	},
 	events: {
 		"click #editCompany": "editModal",
-		"click #addCompany": "addModal"
+		"click #addCompany": "addModal",
+		"click #deleteCompany": "deleteCompany"
 	},
 	render: function() {
 		$(this.el).html(this.template(this.model.attributes));
@@ -185,6 +186,12 @@ directory.CompanyItemView = Backbone.View.extend({
 		e.preventDefault();
 		console.log('add Clicke');
 		$('#myModal').html(new directory.CompanyDialogView({model: new directory.Company()}).render().el);
+	},
+	deleteCompany: function(e) {
+		e.preventDefault();
+		console.log('delete company');
+		this.model.destroy();
+		this.$el.remove();
 	}
 });
 
