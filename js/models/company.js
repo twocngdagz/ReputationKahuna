@@ -1,5 +1,5 @@
 directory.Company = Backbone.Model.extend({
-	url:"/reputationkahuna/api/companies",
+	urlRoot:"/reputationkahuna/api/companies",
 	defaults: {
 		id: null,
 		name: '',

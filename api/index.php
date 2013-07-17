@@ -52,7 +52,7 @@ function updateCompany($id) {
 	$m_company->posted = $company->posted;
 	$m_company->lastposted = $company->lastposted;
 	$m_company->save();
-	echo json_encode($company);
+	echo json_encode($m_company);
 }
 
 ?>
