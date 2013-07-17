@@ -2,14 +2,19 @@ directory.LoginView = Backbone.View.extend({
 	id: 'login',
 	initialize: function() {
 		console.log('Initialize Login View');
+		$('.alert .close').live("click", function(e) {
+		    $(this).parent().hide();
+		});
 	},
 	events: {
-		"click #loginButton": "login"
+		"click #loginButton": "login",
+		"click .alert .close": "close"
 	},
 	render: function() {
 		this.$el.html(this.template());
+		this.$el.find('.alert').hide();
 		return this;
-	}, 
+	},
 	login: function(event) {
 		event.preventDefault();
 		var url = 'api/login';
@@ -24,8 +29,11 @@ directory.LoginView = Backbone.View.extend({
 			dataType: 'json',
 			data: formValues,
 			success: function(data) {
-				console.log('Success');
-				directory.router.navigate('/home', {trigger:true});
+				if(data) {
+					directory.router.navigate('/home', {trigger:true});
+				} else {
+					$('.alert').show();
+				}
 				if(data.error) {
 					console.log(data.error.text);
 				}
@@ -73,7 +81,8 @@ directory.WrapperView = Backbone.View.extend({
 directory.NavigationView = Backbone.View.extend({
 	className: 'navbar main',
 	events: {
-		"click .btn-navbar": "toggle"
+		"click .btn-navbar": "toggle",
+		"click #signout": "logout"
 	},
 	initialize: function() {
 		console.log('Initialize Navigation View');
@@ -81,6 +90,9 @@ directory.NavigationView = Backbone.View.extend({
 	render: function() {
 		this.$el.html(this.template());
 		return this;
+	},
+	logout: function() {
+		directory.router.navigate('/', {trigger:false});
 	},
 	toggle: function() {
 		console.log('toggle');

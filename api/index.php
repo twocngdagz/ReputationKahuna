@@ -14,8 +14,14 @@ $app->delete('/companies/:id', 'deleteCompany');
 $app->run();
 
 function login() {
-	$request = \Slim\Slim::getInstance()->request();
-	echo json_encode($request);
+	global $session;
+	$user = $_POST['user'];
+	$pass = $_POST['pass'];
+	$found_user = User::authenticate($user, $pass);
+	if ($found_user) {
+		$session->login($found_user);
+	}
+	echo json_encode($found_user);
 }
 
 function deleteCompany($id) {

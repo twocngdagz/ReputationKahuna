@@ -22,7 +22,7 @@ class User extends DatabaseObject {
 		$username = $database->escape_value($username);
 		$password = $database->escape_value($password);
 
-		$sql  = "SELECT * FROM users ";
+		$sql  = "SELECT * FROM tbl_user ";
 		$sql .= "WHERE username = '{$username}' ";
 		$sql .= "AND password = '{$password}' ";
 		$sql .= "LIMIT 1";
