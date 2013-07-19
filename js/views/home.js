@@ -42,6 +42,16 @@ directory.LoginView = Backbone.View.extend({
 	}
 });
 
+directory.AccountView = Backbone.View.extend({
+	initialize: function() {
+		console.log('Initialize Account View');
+	},
+	render: function() {
+		this.$el.html(this.template());
+		return this;
+	}
+});
+
 directory.DialogView = Backbone.View.extend({
 	className: 'modal hide fade in',
 	id: 'myModal',
@@ -107,12 +117,24 @@ directory.NavigationView = Backbone.View.extend({
 directory.MenubarView = Backbone.View.extend({
 	className: 'hidden-phone',
 	id: 'menu',
+	events: {
+		"click #accountsetup": "account",
+		"click #dashboard": "dashboard",
+	},
 	initialize: function() {
 		console.log('Initialize Menu View');
 	},
 	render: function() {
 		this.$el.html(this.template());
 		return this;
+	},
+	account: function(e) {
+		e.preventDefault();
+		console.log("Account");
+	},
+	dashboard: function(e) {
+		e.preventDefault();
+		console.log("Dashboard");
 	}
 });
 
