@@ -64,11 +64,15 @@ directory.Router = Backbone.Router.extend({
 	}
 });
 
+
+
 $(document).on("ready", function() {
 	directory.loadTemplates(['CompanyItemView', 'CompanyDialogView', 
 	                         'NavigationView', 'MenubarView', 'ContentView', 
 	                         'FooterView', 'LoginView', 'AccountView'],
 		function() {
+			directory.event = {};
+			_.extend(directory.event, Backbone.Events);
 			directory.router = new directory.Router();
 			Backbone.history.start();
 		});

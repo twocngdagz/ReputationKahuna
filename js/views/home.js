@@ -1,7 +1,6 @@
 directory.LoginView = Backbone.View.extend({
 	id: 'login',
 	initialize: function() {
-		console.log('Initialize Login View');
 		$('.alert .close').live("click", function(e) {
 		    $(this).parent().hide();
 		});
@@ -119,7 +118,7 @@ directory.MenubarView = Backbone.View.extend({
 	id: 'menu',
 	events: {
 		"click #accountsetup": "account",
-		"click #dashboard": "dashboard",
+		"click #dashboard": "dashboard"
 	},
 	initialize: function() {
 		console.log('Initialize Menu View');
