@@ -24,50 +24,51 @@
 </div>
 
 <div class="separator bottom"></div>
-
-<div class="well">
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="widget widget-2 widget-tabs">
-                <div class="widget-head">
-                    <ul>
-                        <li class="active"><a class="glyphicons check" href="#dataTableSourcesTab" data-toggle="tab"><i></i>Active</a></li>
-                        <li><a class="glyphicons unchecked" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Inactive</a></li>
-                        <li><a class="glyphicons no-js remove" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Deleted</a></li>
-                    </ul>
-                </div>
-                <div class="widget-body">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="dataTableSourcesTab">
-                            <div class="widget widget-gray widget-body-white">
-                                <div class="widget-head">
-                                    <h4 class="heading">Companies</h4>
-                                </div>
-                                <div class="widget-body" style="padding: 10px 10px 0 10px;">
-                                    <table class="dynamicTable table table-striped table-bordered table-condensed">
-                                        <thead>
-                                            <tr>
-                                                <th>Company Name</th>
-                                                <th>Location</th>
-                                                <th>Reviews Collected</th>
-                                                <th>Reviews Posted</th>
-                                                <th>Last Review Posted</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="companies">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="dataTableRefferingTab">
-                            <div id="dataTableReffering"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- <a href="" class="btn btn-block btn-icon right btn-inverse glyphicons cardio" style="margin-bottom: 20px;"><i></i> Full Analytics</a> -->
-        </div>
-    </div>
+<div id="contentWrapper">
+	<div class="well">
+	    <div class="row-fluid">
+	        <div class="span12">
+	            <div class="widget widget-2 widget-tabs">
+	                <div class="widget-head">
+	                    <ul>
+	                        <li class="active"><a class="glyphicons check" href="#dataTableSourcesTab" data-toggle="tab"><i></i>Active</a></li>
+	                        <li><a class="glyphicons unchecked" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Inactive</a></li>
+	                        <li><a class="glyphicons no-js remove" href="#dataTableRefferingTab" data-toggle="tab"><i></i>Deleted</a></li>
+	                    </ul>
+	                </div>
+	                <div class="widget-body">
+	                    <div class="tab-content">
+	                        <div class="tab-pane active" id="dataTableSourcesTab">
+	                            <div class="widget widget-gray widget-body-white">
+	                                <div class="widget-head">
+	                                    <h4 class="heading">Companies</h4>
+	                                </div>
+	                                <div class="widget-body" style="padding: 10px 10px 0 10px;">
+	                                    <table class="dynamicTable table table-striped table-bordered table-condensed">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>Company Name</th>
+	                                                <th>Location</th>
+	                                                <th>Reviews Collected</th>
+	                                                <th>Reviews Posted</th>
+	                                                <th>Last Review Posted</th>
+	                                                <th>Action Taken</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody id="companies">
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="tab-pane" id="dataTableRefferingTab">
+	                            <div id="dataTableReffering"></div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- <a href="" class="btn btn-block btn-icon right btn-inverse glyphicons cardio" style="margin-bottom: 20px;"><i></i> Full Analytics</a> -->
+	        </div>
+	    </div>
+	</div>
 </div>

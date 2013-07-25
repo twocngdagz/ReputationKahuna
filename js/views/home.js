@@ -29,7 +29,32 @@ directory.LoginView = Backbone.View.extend({
 			data: formValues,
 			success: function(data) {
 				if(data) {
-					directory.router.navigate('/home', {trigger:true});
+					//directory.router.navigate('/home', {trigger:true});
+					directory.wrapperView = new directory.WrapperView();
+					directory.dialogView = new directory.DialogView();
+					directory.footerView = new directory.FooterView();
+					directory.navigationView = new directory.NavigationView();
+					$('.container-fluid').removeClass('login');
+					directory.companyList = new directory.CompanyCollection();
+					$('.container-fluid').html(directory.navigationView.render().el);
+					$(directory.wrapperView.render().el).appendTo('.container-fluid');
+					$(directory.dialogView.render().el).appendTo('.container-fluid');
+					$(directory.footerView.render().el).appendTo('.container-fluid');
+					directory.companyList.fetch({
+			            success: function () {
+							$(new directory.CompanyListView({collection: directory.companyList}).render());
+							if ($('.dynamicTable').size() > 0)
+							{
+								$('.dynamicTable').dataTable({
+									"sPaginationType": "bootstrap",
+									"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+									"oLanguage": {
+										"sLengthMenu": "_MENU_ records per page"
+									}
+								});
+							}
+			            }
+			        });
 				} else {
 					$('.alert').show();
 				}
@@ -47,6 +72,12 @@ directory.AccountView = Backbone.View.extend({
 	},
 	render: function() {
 		this.$el.html(this.template());
+		this.$el.find('#birthdate').datepicker().on('changeDate', function(e){
+			$('#birthdate').datepicker('hide');
+		});
+		var textArea = this.$el.find('textarea.wysihtml5')
+		if (textArea.size() > 0)
+			textArea.wysihtml5();
 		return this;
 	}
 });
@@ -129,11 +160,34 @@ directory.MenubarView = Backbone.View.extend({
 	},
 	account: function(e) {
 		e.preventDefault();
-		console.log("Account");
+		directory.accountView = new directory.AccountView();
+		$('#contentWrapper').html(directory.accountView.render().el);
+		$('#dashboard').parent().removeClass('active');
+		$('#accountsetup').parent().addClass('active');
 	},
 	dashboard: function(e) {
 		e.preventDefault();
-		console.log("Dashboard");
+		$('.container-fluid').html(directory.navigationView.render().el);
+		$(directory.wrapperView.render().el).appendTo('.container-fluid');
+		$(directory.dialogView.render().el).appendTo('.container-fluid');
+		$(directory.footerView.render().el).appendTo('.container-fluid');
+		directory.companyList.fetch({
+            success: function () {
+				$(new directory.CompanyListView({collection: directory.companyList}).render());
+				if ($('.dynamicTable').size() > 0)
+				{
+					$('.dynamicTable').dataTable({
+						"sPaginationType": "bootstrap",
+						"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+						"oLanguage": {
+							"sLengthMenu": "_MENU_ records per page"
+						}
+					});
+				}
+            }
+        });
+		$('#dashboard').parent().addClass('active');
+		$('#accountsetup').parent().removeClass('active');
 	}
 });
 
@@ -217,12 +271,10 @@ directory.CompanyItemView = Backbone.View.extend({
 	},
 	addModal: function(e) {
 		e.preventDefault();
-		console.log('add Clicke');
 		$('#myModal').html(new directory.CompanyDialogView({model: new directory.Company()}).render().el);
 	},
 	deleteCompany: function(e) {
 		e.preventDefault();
-		console.log('delete company');
 		this.model.destroy();
 		this.$el.remove();
 	}

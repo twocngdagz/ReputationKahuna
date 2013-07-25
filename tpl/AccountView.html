@@ -1,3 +1,11 @@
+<div class="widget widget-2 widget-tabs widget-tabs-2 tabs-right border-bottom-none">
+	<div class="widget-head">
+		<ul>
+			<li class="active"><a class="glyphicons settings" href="#account-settings" data-toggle="tab"><i></i>Account settings</a></li>
+			<li><a class="glyphicons user" href="#account-details" data-toggle="tab"><i></i>Account details</a></li>
+		</ul>
+	</div>
+</div>
 <div class="innerLR">
 	<form class="form-horizontal">
 		<div class="tab-content" style="padding: 0;">
@@ -33,13 +41,10 @@
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Date of birth</label>
+									<label for="birthdate" class="control-label">Date of birth</label>
 									<div class="controls">
-										<div class="input-append">
-											<input type="text" id="datepicker" class="span12"
-												value="13/06/1988" /> <span
-												class="add-on glyphicons calendar"><i></i> </span>
-										</div>
+										<input name="birthdate" type="text" id="birthdate" class="datepicker"
+											value="13/06/1988" />
 									</div>
 								</div>
 							</div>

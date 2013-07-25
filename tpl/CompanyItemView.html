@@ -3,7 +3,17 @@
 <td><%= collected %></td>
 <td class="center"><%= posted %></td>
 <td class="center"><%= lastposted %></td>
-<td><a href="#myModal" data-toggle="modal" id="editCompany">Edit</a>
-	<a href="#myModal" data-toggle="modal" id="addCompany">Add</a>
-	<a href="#" id="deleteCompany">Delete</a></td>
+<td><div class="btn-group btn-block">
+		<div class="leadcontainer">
+			<button class="btn dropdown-lead btn-small">Deactivate</button>
+		</div>
+		<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> </a>
+		<ul class="dropdown-menu pull-right">
+			<li><a href="#myModal" data-toggle="modal" id="editCompany">Edit</a></li>
+			<li><a href="#myModal" data-toggle="modal" id="addCompany">Add</a></li>
+			<li><a href="#myModal" id="deleteCompany">Delete</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+	</div></td>
 
