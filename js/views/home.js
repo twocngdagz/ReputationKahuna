@@ -75,9 +75,8 @@ directory.AccountView = Backbone.View.extend({
 		this.$el.find('#birthdate').datepicker().on('changeDate', function(e){
 			$('#birthdate').datepicker('hide');
 		});
-		var textArea = this.$el.find('textarea.wysihtml5')
-		if (textArea.size() > 0)
-			textArea.wysihtml5();
+		if ($('textarea.wysihtml5').size() > 0)
+			$('textarea.wysihtml5').wysihtml5();
 		return this;
 	}
 });
