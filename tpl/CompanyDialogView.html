@@ -1,43 +1,148 @@
 <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel"></h3>
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+		×
+	</button>
+	<h3 id="myModalLabel"></h3>
 </div>
 <div class="modal-body">
-	<form action="billing" method="post" class="form-horizontal" id="billingform" accept-charset="utf-8">
-      <div class="control-group">
-        <label for="name" class="control-label"> Company Name </label>
-        <div class="controls">
-          <input name="name" type="text" value="<%= name %>" id="name">
-          <span class="help-inline"> The Company Name</span> </div>
-      </div>
-      <div class="control-group">
-        <label for="location" class="control-label"> Street Address </label>
-        <div class="controls">
-          <input name="location" placeholder="W 123 Street" type="text" value="<%= location %>" id="location">
-          <span class="help-inline"> Street Name and/or apartment number</span> </div>
-      </div>
-      <div class="control-group">
-        <label for="collected" class="control-label"> Zip Code </label>
-        <div class="controls">
-          <input name="collected" type="text" value="<%= collected %>" id="collected">
-        </div>
-      </div>
-      <div class="control-group">
-        <label for="posted" class="control-label"> City </label>
-        <div class="controls">
-          <input name="posted" type="text" value="<%= posted %>" id="posted">
-        </div>
-      </div>
-      <div class="control-group">
-        <label for="lastposted" class="control-label"> Date </label>
-        <div class="controls">
-          <input name="lastposted" type="text" value="<%= lastposted %>" id="lastposted" class="datepicker">
-        </div>
-      </div>
-    </form>
+	<div class="widget widget-2 widget-tabs widget-tabs-2 tabs-right border-bottom-none">
+		<div class="widget-head">
+			<ul>
+				<li class="active">
+					<a class="glyphicons user" href="#company-info" data-toggle="tab"><i></i>Company Info</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="innerLR">
+		<form class="form-horizontal">
+			<div class="tab-content" style="padding: 0;">
+				<div class="tab-pane active" id="company-info">
+					<div class="widget widget-2 widget-tabs">
+						<div class="widget-head">
+							<h6 class="heading glyphicons edit"><i></i>Company Information </h6>
+						</div>
+						<div class="widget-body" style="padding-bottom: 0;">
+							<div class="row-fluid">
+								<div class="span3">
+									<strong>Company Information</strong>
+								</div>
+								<div class="span9">
+									<label for="name"> Company Name </label> <input
+										type="text" id="name" class="span10" placeholder="The Company Name"
+										value="<%= name %>"/>
+									<div class="separator"></div>
+
+									<label for="location"> Street Address </label> <input
+										type="text" id="location" class="span10"
+										value="<%= location %>" placeholder="W 123 Street" /> 
+									<div class="separator"></div>
+
+									<label for="zipcode"> Zip Code</label> <input
+										type="text" id="zipcode" class="span12"
+										value="<%= zipcode %>" placeholder="The zip code" />
+									<div class="separator"></div>
+
+									<label for="city"> City </label> <input
+										type="text" id="city" class="span12"
+										value="<%= city %>" placeholder="The City" />
+									<div class="separator"></div>
+									
+									<label for="companywebsite"> Company Website </label> <input
+										type="text" id="companywebsite" class="span12"
+										value="<%= companywebsite %>" placeholder="URL address of the Company Website" />
+									<div class="separator"></div>
+								</div>
+							</div>
+							<hr class="separator bottom" />
+							<div class="row-fluid">
+								<div class="span3">
+									<strong>Owner Information</strong>
+								</div>
+								<div class="span9">
+									<div class="row-fluid">
+										<div class="span6">
+											<label for="owner_firstname"> First Name </label> <input
+												type="text" id="owner_firstname" placeholder="The owner first name"
+												value="<%= owner_firstname %>"/>
+											<div class="separator"></div>
+											<label for="owner_lastname"> Last Name </label> <input
+												type="text" id="owner_lastname" placeholder="The owner last name"
+												value="<%= owner_lastname %>"/>
+											<div class="separator"></div>
+										</div>
+										<div class="span6">
+											<label for="owner_phone">Phone</label>
+											<div class="input-prepend">
+												<span class="add-on glyphicons phone"><i></i> </span> <input
+													type="text" id="owner_phone" class="input-large" value="<%= owner_phone %>"
+													placeholder="01234567897" />
+											</div>
+											<div class="separator"></div>
+
+											<label for="owner_email">E-mail</label>
+											<div class="input-prepend">
+												<span class="add-on glyphicons envelope"><i></i> </span>
+												<input type="text" id="owner_email" class="input-large" value="<%= owner_email %>"
+													placeholder="contact@mosaicpro.biz" />
+											</div>
+											<div class="separator"></div>											
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="separator bottom" />
+							<div class="row-fluid">
+								<div class="span3">
+									<strong>Manager Information</strong>
+								</div>
+								<div class="span9">
+									<div class="row-fluid">
+										<div class="span6">
+											<label for="manager_firstname"> First Name </label> <input
+												type="text" id="manager_firstname" placeholder="The owner first name"
+												value="<%= manager_firstname %>"/>
+											<div class="separator"></div>
+											<label for="manager_lastname"> Last Name </label> <input
+												type="text" id="manager_lastname" placeholder="The owner last name"
+												value="<%= manager_lastname %>"/>
+											<div class="separator"></div>
+										</div>
+										<div class="span6">
+											<label for="manager_phone">Phone</label>
+											<div class="input-prepend">
+												<span class="add-on glyphicons phone"><i></i> </span> <input
+													type="text" id="manager_phone" class="input-large" value="<%= manager_phone %>"
+													placeholder="01234567897" />
+											</div>
+											<div class="separator"></div>
+
+											<label for="manager_email">E-mail</label>
+											<div class="input-prepend">
+												<span class="add-on glyphicons envelope"><i></i> </span>
+												<input type="text" id="manager_email" class="input-large" value="<%= manager_email %>"
+													placeholder="contact@mosaicpro.biz" />
+											</div>
+											<div class="separator"></div>											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</div>
+
 </div>
 <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true" id="close-action">Close</button>
-    <button class="btn btn-primary save-action" id="save-action">Save changes</button>
+	<button class="btn" data-dismiss="modal" aria-hidden="true" id="close-action">
+		Close
+	</button>
+	<button class="btn btn-primary save-action" id="save-action">
+		Save changes
+	</button>
 </div>
 

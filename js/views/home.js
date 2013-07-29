@@ -75,8 +75,6 @@ directory.AccountView = Backbone.View.extend({
 		this.$el.find('#birthdate').datepicker().on('changeDate', function(e){
 			$('#birthdate').datepicker('hide');
 		});
-		if ($('textarea.wysihtml5').size() > 0)
-			$('textarea.wysihtml5').wysihtml5();
 		return this;
 	}
 });
@@ -88,6 +86,7 @@ directory.DialogView = Backbone.View.extend({
 		console.log('Initialized Dialog View');
 	},
 	render: function() {
+		$(this.el).attr("data-width", 960);
 		return this;
 	}
 });
@@ -161,6 +160,8 @@ directory.MenubarView = Backbone.View.extend({
 		e.preventDefault();
 		directory.accountView = new directory.AccountView();
 		$('#contentWrapper').html(directory.accountView.render().el);
+		if ($('textarea.wysihtml5').size() > 0)
+			$('textarea.wysihtml5').wysihtml5();
 		$('#dashboard').parent().removeClass('active');
 		$('#accountsetup').parent().addClass('active');
 	},
