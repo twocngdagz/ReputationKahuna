@@ -49,7 +49,8 @@ directory.Router = Backbone.Router.extend({
 $(document).on("ready", function() {
 	directory.loadTemplates(['CompanyItemView', 'CompanyDialogView', 
 	                         'NavigationView', 'MenubarView', 'ContentView', 
-	                         'FooterView', 'LoginView', 'AccountView'],
+	                         'FooterView', 'LoginView', 'AccountView',
+	                         'DialogView'],
 		function() {
 			directory.event = {};
 			_.extend(directory.event, Backbone.Events);

@@ -86,6 +86,7 @@ directory.DialogView = Backbone.View.extend({
 		console.log('Initialized Dialog View');
 	},
 	render: function() {
+		this.$el.html(this.template());
 		$(this.el).attr("data-width", 960);
 		return this;
 	}
@@ -242,7 +243,7 @@ directory.CompanyDialogView = Backbone.View.extend({
 		this.model.set(attribute);
 	},
 	close: function() {
-		console.log('Close');
+		this.$el.remove();
 		this.model.set(directory.previous_attr);
 		$('#myModal').modal('hide');
 	}
@@ -267,7 +268,8 @@ directory.CompanyItemView = Backbone.View.extend({
 	
 	editModal: function(e) {
 		e.preventDefault();
-		$('#myModal').html(new directory.CompanyDialogView({model: this.model}).render().el);	
+		$('#dialogtabid').append("<li class=\"active\"><a class=\"glyphicons user\" href=\"#company-info\" data-toggle=\"tab\"><i></i>Company Info</a></li>");
+		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);	
 	},
 	addModal: function(e) {
 		e.preventDefault();
