@@ -1,0 +1,86 @@
+<div class="widget widget-2 widget-tabs">
+	<div class="widget-head">
+		<h6 class="heading glyphicons edit"><i></i>Company Information</h6>
+	</div>
+	<div class="widget-body" style="padding-bottom: 0;">
+		<div class="row-fluid">
+			<div class="span3">
+				<strong>Review Page Setup</strong>
+			</div>
+			<div class="span9">
+				<label for=review-url> Client Review URL </label>
+				<label class="span6" id="review-url">Put somthing here</label>
+				<input
+				type="text" class="span6" placeholder="The Company Name"
+				value="<%= name %>"/>
+			</div>
+		</div>
+		<hr class="separator bottom" />
+		<div class="row-fluid">
+			<div class="span3">
+				<strong>Good Review Page Setup</strong>
+			</div>
+			<div class="span9">
+				<label for="redirect-review"> After Leaving a Review Redirect to </label>
+				<select class="span12" id="redirect-review">
+					<option>A Custom URL</option>
+					<option>Default URL</option>
+				</select>
+				<label for="custom-url"> Custom URL </label>
+				<input
+				type="text" id="custom-url" placeholder="The custom URL"
+				value="<%= owner_lastname %>"/>
+				<div class="separator"></div>
+			</div>
+		</div>
+		<hr class="separator bottom" />
+		<div class="row-fluid">
+			<div class="span3">
+				<strong>Bad Review Page Setup</strong>
+			</div>
+			<div class="span9">
+					<div class="span12">
+						<label for="wysihtml-thankyou"> Special Offer & Contact Information Positioned Below the Video </label>
+						<textarea id="wysihtml-thankyou" class="wysihtml5 span12" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
+						<div class="separator"></div>
+					</div>
+			</div>
+		</div>
+		<hr class="separator bottom" />
+		<div class="row-fluid">
+			<div class="span3">
+				<strong>Review Page Layout</strong>
+			</div>
+			<div class="span9">
+					<div class="span12 uniformjs">
+						<label class="radio">
+							<input type="radio" class="radio" name="radio" value="1" />
+							Page Background Image
+						</label>
+						<div class="fileupload fileupload-new span12" data-provides="fileupload">
+						  	<span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+						  	<span class="fileupload-preview"></span>
+						  	<a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">&times;</a>
+						</div>
+						<div class="separator"></div>
+						<label class="radio">
+							<input type="radio" class="radio" name="radio" value="1" />
+							Page Background Color
+						</label>
+						<div class="control-group">
+							<label class="control-label">Color picker</label>
+							<div class="controls">
+								<input type="text" id="colorpickerColor" value="#D15353" /><br/><br/>
+								<div id="colorpicker"></div>
+							</div>
+						</div>
+						<div class="separator"></div>
+					</div>
+			</div>
+		</div>
+		<div class="form-actions" style="margin: 0;">
+			<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok" id="close-action"><i></i>Save changes</button>
+			<button type="button" class="btn btn-icon btn-default glyphicons circle_remove" data-dismiss="modal" aria-hidden="true" id="close-action"><i></i>Cancel</button>
+		</div>
+	</div>
+</div>

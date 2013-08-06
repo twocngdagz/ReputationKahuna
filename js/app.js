@@ -50,7 +50,7 @@ $(document).on("ready", function() {
 	directory.loadTemplates(['CompanyItemView', 'CompanyDialogView', 
 	                         'NavigationView', 'MenubarView', 'ContentView', 
 	                         'FooterView', 'LoginView', 'AccountView',
-	                         'DialogView'],
+	                         'DialogView','OfflineReviewView'],
 		function() {
 			directory.event = {};
 			_.extend(directory.event, Backbone.Events);

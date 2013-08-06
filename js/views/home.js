@@ -204,11 +204,33 @@ directory.ContentView = Backbone.View.extend({
 });
 
 
-directory.CompanyDialogView = Backbone.View.extend({
+directory.OfflineReviewView = Backbone.View.extend({
+	id: 'offline-review',
+	className: 'tab-pane',
+	initialize: function() {
+		console.log('Initialize Offline Review View');
+		$('#myModal').on('hidden', function () {
+			$('#offline-review').remove();
+			$('#ul-offline-review').remove();
+		});
+	},
 	
+	render: function() {
+		this.$el.html(this.template);
+		return this;
+	}
+});
+
+directory.CompanyDialogView = Backbone.View.extend({
+	id: 'company-info',
+	className: 'tab-pane active',
 	initialize: function() {
 		console.log('Initialize Dialog View');
 		directory.previous_attr = {};
+		$('#myModal').on('hidden', function () {
+			$('#company-info').remove();
+			$('#ul-company-info').remove();
+		});
 	}, 
 	
 	events: {
@@ -243,7 +265,7 @@ directory.CompanyDialogView = Backbone.View.extend({
 		this.model.set(attribute);
 	},
 	close: function() {
-		this.$el.remove();
+		this.cancel();
 		this.model.set(directory.previous_attr);
 		$('#myModal').modal('hide');
 	}
@@ -255,6 +277,7 @@ directory.CompanyItemView = Backbone.View.extend({
 		console.log('Initialize CompanyList View');
 		this.render = _.bind(this.render, this);
 		this.model.bind('change', this.render);
+		
 	},
 	events: {
 		"click #editCompany": "editModal",
@@ -268,8 +291,16 @@ directory.CompanyItemView = Backbone.View.extend({
 	
 	editModal: function(e) {
 		e.preventDefault();
-		$('#dialogtabid').append("<li class=\"active\"><a class=\"glyphicons user\" href=\"#company-info\" data-toggle=\"tab\"><i></i>Company Info</a></li>");
-		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);	
+		$('#dialogtabid').append("<li id=\"ul-company-info\" class=\"active\"><a class=\"glyphicons user\" href=\"#company-info\" data-toggle=\"tab\"><i></i>Company Info</a></li>");
+		$('#dialogtabid').append("<li id=\"ul-offline-review\"><a class=\"glyphicons user\" href=\"#offline-review\" data-toggle=\"tab\"><i></i>Offline Review Page</a></li>");
+		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);
+		$('#tab-content-id').append(new directory.OfflineReviewView().render().el);
+		if ($('textarea.wysihtml5').size() > 0)
+			$('textarea.wysihtml5').wysihtml5();
+		if ($('#colorpicker').size() > 0)
+		{
+			$('#colorpicker').farbtastic('#colorpickerColor');
+		}
 	},
 	addModal: function(e) {
 		e.preventDefault();
