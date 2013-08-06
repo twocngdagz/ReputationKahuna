@@ -298,8 +298,10 @@ directory.CompanyItemView = Backbone.View.extend({
 		if ($('textarea.wysihtml5').size() > 0)
 			$('textarea.wysihtml5').wysihtml5();
 		if ($('#colorpicker').size() > 0)
-		{
 			$('#colorpicker').farbtastic('#colorpickerColor');
+		if ($('#cp1').length){
+			$('#cp1').colorpicker();
+			console.log('Color Picker');
 		}
 	},
 	addModal: function(e) {
