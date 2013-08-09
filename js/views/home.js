@@ -217,6 +217,7 @@ directory.OfflineReviewView = Backbone.View.extend({
 	
 	render: function() {
 		this.$el.html(this.template);
+		this.$el.find('#colorpicker-js').colorpicker();
 		return this;
 	}
 });
@@ -295,13 +296,16 @@ directory.CompanyItemView = Backbone.View.extend({
 		$('#dialogtabid').append("<li id=\"ul-offline-review\"><a class=\"glyphicons user\" href=\"#offline-review\" data-toggle=\"tab\"><i></i>Offline Review Page</a></li>");
 		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);
 		$('#tab-content-id').append(new directory.OfflineReviewView().render().el);
-		if ($('textarea.wysihtml5').size() > 0)
-			$('textarea.wysihtml5').wysihtml5();
+		// if ($('textarea.wysihtml5').size() > 0)
+		// 	$('textarea.wysihtml5').wysihtml5();
+		CKEDITOR.replace( 'wysihtml-thankyou' );
 		if ($('#colorpicker').size() > 0)
 			$('#colorpicker').farbtastic('#colorpickerColor');
-		if ($('#cp1').length){
+		if ($('.colorpicker').size() > 0) {
 			$('#cp1').colorpicker();
-			console.log('Color Picker');
+			$('#cp2').colorpicker();
+			$('#cp3').colorpicker();
+			$('.dropdown-menu').css('z-index','9999')
 		}
 	},
 	addModal: function(e) {

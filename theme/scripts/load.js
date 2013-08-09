@@ -39,7 +39,6 @@ $(function()
 	//$(window).resize();
 	
 	var layout = $.cookie('layout') ? $.cookie('layout') : 'fixed';
-	console.log(layout);
 	
 	//if (layout == 'fixed' && !$('.container-fluid:first').is('.fixed'))
 //		$('.container-fluid:first').addClass('fixed');
