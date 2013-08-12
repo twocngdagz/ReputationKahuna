@@ -15,6 +15,7 @@ directory.LoginView = Backbone.View.extend({
 		return this;
 	},
 	login: function(event) {
+		var self = this;
 		event.preventDefault();
 		var url = 'api/login';
 		var formValues = {
@@ -30,31 +31,7 @@ directory.LoginView = Backbone.View.extend({
 			success: function(data) {
 				if(data) {
 					//directory.router.navigate('/home', {trigger:true});
-					directory.wrapperView = new directory.WrapperView();
-					directory.dialogView = new directory.DialogView();
-					directory.footerView = new directory.FooterView();
-					directory.navigationView = new directory.NavigationView();
-					$('.container-fluid').removeClass('login');
-					directory.companyList = new directory.CompanyCollection();
-					$('.container-fluid').html(directory.navigationView.render().el);
-					$(directory.wrapperView.render().el).appendTo('.container-fluid');
-					$(directory.dialogView.render().el).appendTo('.container-fluid');
-					$(directory.footerView.render().el).appendTo('.container-fluid');
-					directory.companyList.fetch({
-			            success: function () {
-							$(new directory.CompanyListView({collection: directory.companyList}).render());
-							if ($('.dynamicTable').size() > 0)
-							{
-								$('.dynamicTable').dataTable({
-									"sPaginationType": "bootstrap",
-									"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-									"oLanguage": {
-										"sLengthMenu": "_MENU_ records per page"
-									}
-								});
-							}
-			            }
-			        });
+					self.showHome();
 				} else {
 					$('.alert').show();
 				}
@@ -63,6 +40,33 @@ directory.LoginView = Backbone.View.extend({
 				}
 			}
 		});
+	},
+	showHome: function() {
+		directory.wrapperView = new directory.WrapperView();
+		directory.dialogView = new directory.DialogView();
+		directory.footerView = new directory.FooterView();
+		directory.navigationView = new directory.NavigationView();
+		$('.container-fluid').removeClass('login');
+		directory.companyList = new directory.CompanyCollection();
+		$('.container-fluid').html(directory.navigationView.render().el);
+		$(directory.wrapperView.render().el).appendTo('.container-fluid');
+		$(directory.dialogView.render().el).appendTo('.container-fluid');
+		$(directory.footerView.render().el).appendTo('.container-fluid');
+		directory.companyList.fetch({
+            success: function () {
+				$(new directory.CompanyListView({collection: directory.companyList}).render());
+				if ($('.dynamicTable').size() > 0)
+				{
+					$('.dynamicTable').dataTable({
+						"sPaginationType": "bootstrap",
+						"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+						"oLanguage": {
+							"sLengthMenu": "_MENU_ records per page"
+						}
+					});
+				}
+            }
+        });
 	}
 });
 
@@ -87,7 +91,7 @@ directory.DialogView = Backbone.View.extend({
 	},
 	render: function() {
 		this.$el.html(this.template());
-		$(this.el).attr("data-width", 960);
+		$(this.el).attr("data-width", 1024);
 		return this;
 	}
 });
@@ -131,7 +135,25 @@ directory.NavigationView = Backbone.View.extend({
 		return this;
 	},
 	logout: function() {
-		directory.router.navigate('/', {trigger:false});
+		var url = 'api/logout';
+		$.ajax({
+			url: url,
+			type: 'get',
+			dataType: 'json',
+			success: function(data) {
+				if(data) {
+					directory.loginView.render();
+					$('.container-fluid').html(directory.loginView.el);
+					$('.container-fluid').addClass('login');
+					$('.uniformjs').find("select, input, button, textarea").uniform();
+				} else {
+					$('.alert').show();
+				}
+				if(data.error) {
+					console.log(data.error.text);
+				}
+			}
+		});
 	},
 	toggle: function() {
 		console.log('toggle');
@@ -298,15 +320,19 @@ directory.CompanyItemView = Backbone.View.extend({
 		$('#tab-content-id').append(new directory.OfflineReviewView().render().el);
 		// if ($('textarea.wysihtml5').size() > 0)
 		// 	$('textarea.wysihtml5').wysihtml5();
-		CKEDITOR.replace( 'wysihtml-thankyou' );
+		CKEDITOR.replace('wysihtml-thankyou');
+		CKEDITOR.replace('disclaimer');
+		CKEDITOR.replace('term-service');
 		if ($('#colorpicker').size() > 0)
 			$('#colorpicker').farbtastic('#colorpickerColor');
 		if ($('.colorpicker').size() > 0) {
 			$('#cp1').colorpicker();
 			$('#cp2').colorpicker();
 			$('#cp3').colorpicker();
-			$('.dropdown-menu').css('z-index','9999')
+			$('.dropdown-menu').css('z-index','9999');
 		}
+		$('.toggle-button').toggleButtons();
+		$('#myModalLabel').html(this.model.get('name'));
 	},
 	addModal: function(e) {
 		e.preventDefault();

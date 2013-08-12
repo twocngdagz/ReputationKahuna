@@ -6,6 +6,8 @@ require 'Slim/Slim.php';
 
 $app = new \Slim\Slim();
 $app->post('/login', 'login');
+$app->get('/is_login', 'is_login');
+$app->get('/logout', 'logout');
 $app->get('/companies', 'getCompanies');
 $app->post('/companies', 'addCompanies');
 $app->get('/companies/:id', 'getCompany');
@@ -22,6 +24,17 @@ function login() {
 		$session->login($found_user);
 	}
 	echo json_encode($found_user);
+}
+
+function is_login() {
+	global $session;
+	echo json_encode($session->is_logged_in());
+}
+
+function logout() {
+	global $session;
+	$session->logout();
+	echo json_encode(!$session->is_logged_in());
 }
 
 function deleteCompany($id) {

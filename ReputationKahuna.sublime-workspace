@@ -1,0 +1,415 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"back",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<div class=\"widget widget-2 widget-tabs\">\n	<div class=\"widget-head\">\n		<h6 class=\"heading glyphicons edit\"><i></i>Company Information</h6>\n	</div>\n	<div class=\"widget-body\" style=\"padding-bottom: 0;\">\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Review Page Setup</strong>\n			</div>\n			<div class=\"span10\">\n				<label for=\"review-url\"> Client Review URL </label>\n				<label class=\"span6\" id=\"review-url\">Put somthing here</label>\n				<input\n				type=\"text\" class=\"span6\" placeholder=\"The Company Name\"\n				value=\"<%= review-url %>\"/>\n			</div>\n		</div>\n		<hr class=\"separator bottom\" />\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Good Review Page Setup</strong>\n			</div>\n			<div class=\"span10\">\n				<label for=\"redirect-review\"> After Leaving a Review Redirect to </label>\n				<select class=\"span12\" id=\"redirect-review\">\n					<option>A Custom URL</option>\n					<option>Default URL</option>\n				</select>\n				<label for=\"custom-url\"> Custom URL </label>\n				<input\n				type=\"text\" id=\"custom-url\" placeholder=\"The custom URL\"\n				value=\"<%= owner_lastname %>\"/>\n				<div class=\"separator\"></div>\n			</div>\n		</div>\n		<hr class=\"separator bottom\" />\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Bad Review Page Setup</strong>\n			</div>\n			<div class=\"span10\">\n					<div class=\"span12\">\n						<label for=\"wysihtml-thankyou\"> Special Offer & Contact Information Positioned Below the Video </label>\n						<textarea id=\"wysihtml-thankyou\" name=\"wysihtml-thankyou\" class=\"wysihtml5 span12\" rows=\"5\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>\n						<div class=\"separator\"></div>\n					</div>\n			</div>\n		</div>\n		<hr class=\"separator bottom\" />\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Review Page Layout</strong>\n			</div>\n			<div class=\"span10\">\n				<div class=\"span12 uniformjs\">\n					<label class=\"radio\">\n						<input type=\"radio\" class=\"radio\" name=\"radio\" value=\"1\" />\n						Page Background Image\n					</label>\n					<div class=\"fileupload fileupload-new span12\" data-provides=\"fileupload\">\n					  	<span class=\"btn btn-file\"><span class=\"fileupload-new\">Select file</span><span class=\"fileupload-exists\">Change</span><input type=\"file\" /></span>\n					  	<span class=\"fileupload-preview\"></span>\n					  	<a href=\"#\" class=\"close fileupload-exists\" data-dismiss=\"fileupload\" style=\"float: none\">&times;</a>\n					</div>\n					<div class=\"separator\"></div>\n					<label class=\"radio\">\n						<input type=\"radio\" class=\"radio\" name=\"radio\" value=\"1\" />\n						Page Background Color\n					</label>\n					<div class=\"control-group\">\n						<label class=\"control-label\">Color picker</label>\n						<div class=\"controls\">\n							<div class=\"input-append color colorpicker\" data-color=\"rgb(255, 146, 180)\" data-color-format=\"rgba\" id=\"cp1\">\n                                <input type=\"text\" class=\"span9\" value=\"rgb(0,194,255,0.78)\">\n                                <span class=\"add-on\"><i style=\"background-color: rgb(0,194,255,0.78)\"></i></span>\n                            </div>\n						</div>\n					</div>\n					<div class=\"separator\"></div>\n				</div>\n			</div>\n		</div>\n		<hr class=\"separator bottom\" />\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Form Options</strong>\n			</div>\n			<div class=\"span10\">\n				<div class=\"row-fluid\">\n					<div class=\"span6\">\n						<label for=\"font-family\">Font Family</label>\n						<select class=\"span9\" id=\"font-family\">\n							<option>Male</option>\n							<option>Female</option>\n						</select>\n						<div class=\"separator\"></div>\n						<label for=\"cp3\">Font Color</label>\n						<div class=\"input-append color colorpicker\" data-color=\"rgb(255, 146, 180)\" data-color-format=\"rgba\" id=\"cp3\">\n		                    <input type=\"text\" class=\"span9\" value=\"rgb(0,194,255,0.78)\">\n		                    <span class=\"add-on\"><i style=\"background-color: rgb(0,194,255,0.78)\"></i></span>\n		                </div>\n		            </div>\n		            <div class=\"span6\">\n						<label for=\"font-size\">Font Size</label>\n						<select class=\"span9\" id=\"font-size\">\n							<option>Male</option>\n							<option>Female</option>\n						</select>\n						<div class=\"separator\"></div>\n						<label for=\"cp2\">Form Color</label>\n						<div class=\"input-append color colorpicker\" data-color=\"rgb(255, 146, 180)\" data-color-format=\"rgba\" id=\"cp2\">\n		                    <input type=\"text\" class=\"span9\" value=\"rgb(0,194,255,0.78)\">\n		                    <span class=\"add-on\"><i style=\"background-color: rgb(0,194,255,0.78)\"></i></span>\n		                </div>\n		            </div>	  \n		        </div>\n		        <div class=\"row-fluid\">\n		        	<div class=\"span12\">\n		        		<div class=\"widget widget-4\">\n							<div class=\"widget-head\">\n								<h3 class=\"heading\">Font Preview</h3>\n							</div>\n							<div class=\"widget-body\">\n								<p>There are various user interface elements contained in AdminPlus, like navigation elements, different kind of buttons, with &amp; without icons, different sizes, accordions &amp; collapsibles, tabs &amp; pills, stacked &amp; regular, progress bars, sliders &amp; many more.</p>\n							</div>\n						</div>\n		        	</div>\n		        </div>\n			</div>\n		</div>\n		<hr class=\"separator bottom\" />\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Review Sidebar</strong>\n			</div>\n			<div class=\"span10\">\n				<div class=\"row-fluid\">\n					<div class=\"span12\">\n						<label for=\"remove-streaming-review\">Remove Streaming Reviews</label>\n						<div class=\"toggle-button\">\n							<input type=\"checkbox\" checked=\"checked\" id=\"remove-streaming-review\"/>\n						</div>\n						<div class=\"separator\"></div>\n						<label for=\"char-displayed-review\">Number of Character To Be Displayed Per Review</label>\n						<input type=\"text\" class=\"span9\" id=\"char-displayed-review\">\n						<div class=\"separator\"></div>\n						<label for=\"number-review-displayed\">Number Of Reviews To Be Displayed</label>\n						<input type=\"text\" class=\"span9\" id=\"number-review-displayed\">\n						<div class=\"separator\"></div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<hr class=\"separator bottom\" />\n		<div class=\"row-fluid\">\n			<div class=\"span2\">\n				<strong>Page Options</strong>\n			</div>\n			<div class=\"span10\">\n				<div class=\"row-fluid\">\n					<div class=\"span6\">\n						<label for=\"remove-streaming-review\">Collect Reviewers Information</label>\n						<div class=\"control-group\">\n							<div class=\"toggle-button\">\n								<input type=\"checkbox\" checked=\"checked\" id=\"remove-streaming-review\"/>\n							</div>\n							<span><i></i>Email Address</span>\n							<div class=\"separator\"></div>\n							<div class=\"toggle-button\">\n								<input type=\"checkbox\" checked=\"checked\" id=\"remove-streaming-review\"/>\n							</div>\n							<span><i></i>Phone</span>\n							<div class=\"separator\"></div>\n							<div class=\"toggle-button\">\n								<input type=\"checkbox\" checked=\"checked\" id=\"remove-streaming-review\"/>\n							</div>\n							<span><i></i>City</span>\n							<div class=\"separator\"></div>\n							<div class=\"toggle-button\">\n								<input type=\"checkbox\" checked=\"checked\" id=\"remove-streaming-review\"/>\n							</div>\n							<span><i></i>State</span>\n						</div>\n					</div>\n				</div>\n				<div class=\"separator\"></div>\n				<div class=\"row-fluid\">\n					<div class=\"span12\">\n						<label for=\"disclaimer\">Disclaimer</label>\n						<textarea id=\"disclaimer\" name=\"disclaimer\" class=\"wysihtml5 span12\" rows=\"5\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>\n						<div class=\"separator\"></div>\n						<label for=\"term-service\">Term of Service</label>\n						<textarea id=\"term-service\" name=\"term-service\" class=\"wysihtml5 span12\" rows=\"5\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>\n\n					</div>\n				</div>\n				<div class=\"separator\"></div>\n			</div>\n		</div>\n		<div class=\"form-actions\" style=\"margin: 0;\">\n			<button type=\"submit\" class=\"btn btn-icon btn-primary glyphicons circle_ok\" id=\"close-action\"><i></i>Save changes</button>\n			<button type=\"button\" class=\"btn btn-icon btn-default glyphicons circle_remove\" data-dismiss=\"modal\" aria-hidden=\"true\" id=\"close-action\"><i></i>Cancel</button>\n		</div>\n	</div>\n</div>",
+			"file": "tpl/OfflineReviewView.html",
+			"file_size": 9618,
+			"file_write_time": 130205927258109056,
+			"settings":
+			{
+				"buffer_size": 9422,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tpl/DialogView.html",
+			"settings":
+			{
+				"buffer_size": 542,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 6811,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/views/home.js",
+			"settings":
+			{
+				"buffer_size": 9777,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/app.js",
+			"settings":
+			{
+				"buffer_size": 1497,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tpl/AccountView.html",
+			"settings":
+			{
+				"buffer_size": 8675,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"selected_items":
+		[
+		],
+		"width": 370.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')",
+			"https://sublime.wbond.net/alpha/packages.json"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/tahmidkarim/web8/index.html",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/Browser Refresh/Default (Windows).sublime-keymap",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/Default/Preferences.sublime-settings",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Users/tahmidkarim/web8/main.css",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/tahmidkarim/Desktop/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"toggle",
+			"auto",
+			"009bdf"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tpl/OfflineReviewView.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9422,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								559,
+								559
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tpl/DialogView.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								533,
+								533
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6811,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6793,
+								6793
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2086.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/views/home.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9777,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5164,
+								5164
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1331.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/app.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1497,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								537,
+								537
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "tpl/AccountView.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1464,
+								1464
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1695.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "ReputationKahuna.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

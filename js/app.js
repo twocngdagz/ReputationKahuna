@@ -19,29 +19,45 @@ var directory = {
 
 directory.Router = Backbone.Router.extend({
 	routes: {
-		"": 'login'
-		//"home": "home"
+		"": 'login',
+		"logout": 'logout'
 	}, 
 	
 	initialize: function() {
-		console.log('Router');
 		var isLogin = false;
 	},
 	
 	login: function() {
-		if (!directory.loginView) {
-			directory.loginView = new directory.LoginView();
-			directory.loginView.render();
-		} else {
-			directory.loginView.delegateEvents();
-		}
-		$('.container-fluid').html(directory.loginView.el);
-		$('.container-fluid').addClass('login');
-		$('.uniformjs').find("select, input, button, textarea").uniform();
+		var url = 'api/is_login';
+		$.ajax({
+			url: url,
+			type: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				if(data) {
+					directory.loginView = new directory.LoginView();
+					directory.loginView.showHome();
+				} else {
+					if (!directory.loginView) {
+						console.log('login');
+						directory.loginView = new directory.LoginView();
+						directory.loginView.render();
+					} else {
+						directory.loginView.delegateEvents();
+					}
+					$('.container-fluid').html(directory.loginView.el);
+					$('.container-fluid').addClass('login');
+					$('.uniformjs').find("select, input, button, textarea").uniform();
+				}
+				if(data.error) {
+					console.log(data.error.text);
+				}
+			},
+			error: function(jqXHR, status, errorString) {
+				console.log(errorString);
+			}
+		});
 	}
-	//home: function() {
-		
-	//}
 });
 
 

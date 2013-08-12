@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\ReputationKahuna"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\php-authentication-system"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\admin+"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\sample-tasks"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\backbone-cellar"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\BBT2013"
+		}
+	]
+}
