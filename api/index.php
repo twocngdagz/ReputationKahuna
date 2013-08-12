@@ -9,6 +9,7 @@ $app->post('/login', 'login');
 $app->get('/is_login', 'is_login');
 $app->get('/logout', 'logout');
 $app->get('/companies', 'getCompanies');
+$app->get('/offlinereviews','getOfflineReview')
 $app->post('/companies', 'addCompanies');
 $app->get('/companies/:id', 'getCompany');
 $app->put('/companies/:id', 'updateCompany');
@@ -79,6 +80,11 @@ function updateCompany($id) {
 	$m_company->lastposted = $company->lastposted;
 	$m_company->save();
 	echo json_encode($m_company);
+}
+
+function getOfflineReview($companyid) {
+	$offline_review = OfflineReview::find_by_id($companyid);
+	echo json_encode($offline_review);
 }
 
 ?>

@@ -11,4 +11,5 @@ require_once(LIB_PATH.DS.'company.php');
 require_once(LIB_PATH.DS.'file_upload.php');
 require_once(LIB_PATH.DS.'session.php');
 require_once(LIB_PATH.DS.'user.php');
+require_once(LIB_PATH.DS.'offline-review.php');
 ?>	

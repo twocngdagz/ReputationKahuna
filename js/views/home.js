@@ -318,9 +318,7 @@ directory.CompanyItemView = Backbone.View.extend({
 		$('#dialogtabid').append("<li id=\"ul-offline-review\"><a class=\"glyphicons user\" href=\"#offline-review\" data-toggle=\"tab\"><i></i>Offline Review Page</a></li>");
 		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);
 		$('#tab-content-id').append(new directory.OfflineReviewView().render().el);
-		// if ($('textarea.wysihtml5').size() > 0)
-		// 	$('textarea.wysihtml5').wysihtml5();
-		CKEDITOR.replace('wysihtml-thankyou');
+		CKEDITOR.replace('special-offer-html');
 		CKEDITOR.replace('disclaimer');
 		CKEDITOR.replace('term-service');
 		if ($('#colorpicker').size() > 0)
