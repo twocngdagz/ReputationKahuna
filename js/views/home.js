@@ -317,7 +317,7 @@ directory.CompanyItemView = Backbone.View.extend({
 		$('#dialogtabid').append("<li id=\"ul-company-info\" class=\"active\"><a class=\"glyphicons user\" href=\"#company-info\" data-toggle=\"tab\"><i></i>Company Info</a></li>");
 		$('#dialogtabid').append("<li id=\"ul-offline-review\"><a class=\"glyphicons user\" href=\"#offline-review\" data-toggle=\"tab\"><i></i>Offline Review Page</a></li>");
 		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);
-		$('#tab-content-id').append(new directory.OfflineReviewView().render().el);
+		$('#tab-content-id').append(new directory.OfflineReviewView({model: this.options.offlinereview}).render().el);
 		CKEDITOR.replace('special-offer-html');
 		CKEDITOR.replace('disclaimer');
 		CKEDITOR.replace('term-service');
@@ -360,8 +360,8 @@ directory.CompanyListView = Backbone.View.extend({
 		});
 	},
 	
-	add: function(company) {
-		var companyItem = new directory.CompanyItemView({model: company});
+	add: function(company) { 
+		var companyItem = new directory.CompanyItemView({model: company, offlinereview: new directory.OfflineReview()});
 		this._companies.push(companyItem);
 		if(this._rendered) {
 			$(this.el).append(companyItem.render().el);

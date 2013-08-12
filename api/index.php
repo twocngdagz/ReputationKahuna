@@ -9,7 +9,7 @@ $app->post('/login', 'login');
 $app->get('/is_login', 'is_login');
 $app->get('/logout', 'logout');
 $app->get('/companies', 'getCompanies');
-$app->get('/offlinereviews','getOfflineReview')
+$app->get('/offlinereviews','getOfflineReview');
 $app->post('/companies', 'addCompanies');
 $app->get('/companies/:id', 'getCompany');
 $app->put('/companies/:id', 'updateCompany');
