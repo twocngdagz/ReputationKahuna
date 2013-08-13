@@ -275,11 +275,13 @@ directory.CompanyDialogView = Backbone.View.extend({
 	id: 'company-info',
 	className: 'tab-pane active',
 	initialize: function() {
-		console.log('Initialize Dialog View');
 		directory.previous_attr = {};
+		this.render = _.bind(this.render, this);
+		var self = this;
 		$('#myModal').on('hidden', function () {
 			$('#company-info').remove();
 			$('#ul-company-info').remove();
+			self.close();
 		});
 	}, 
 	
@@ -310,13 +312,12 @@ directory.CompanyDialogView = Backbone.View.extend({
 	}, 
 	modify: function(e) {
 		var attribute = {};
-		attribute[e.currentTarget.name] = e.currentTarget.value;
-		directory.previous_attr[e.currentTarget.name] = this.model.attributes[e.currentTarget.name];
-		console.log(directory.previous_attr);
+		attribute[e.currentTarget.id] = e.currentTarget.value;
+		directory.previous_attr[e.currentTarget.id] = this.model.attributes[e.currentTarget.id];
 		this.model.set(attribute);
 	},
 	close: function() {
-		this.cancel();
+		console.log(directory.previous_attr);
 		this.model.set(directory.previous_attr);
 		$('#myModal').modal('hide');
 	}

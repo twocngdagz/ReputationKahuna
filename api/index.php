@@ -56,9 +56,17 @@ function addCompanies() {
 	$company = json_decode($body);
 	$m_company->name = $company->name;
 	$m_company->location = $company->location;
-	$m_company->collected = $company->collected;
-	$m_company->posted = $company->posted;
-	$m_company->lastposted = $company->lastposted;
+	$m_company->zipcode = $company->zipcode;
+	$m_company->city = $company->city;
+	$m_company->companywebsite = $company->companywebsite;
+	$m_company->owner_firstname = $company->owner_firstname;
+	$m_company->owner_lastname = $company->owner_lastname;
+	$m_company->owner_phone = $company->owner_phone;
+	$m_company->owner_email = $company->owner_email;
+	$m_company->manager_firstname = $company->manager_firstname;
+	$m_company->manager_lastname = $company->manager_lastname;
+	$m_company->manager_phone = $company->manager_phone;
+	$m_company->manager_email = $company->manager_email;
 	$m_company->save();
 	echo json_encode($m_company);
 }
@@ -75,9 +83,17 @@ function updateCompany($id) {
 	$company = json_decode($body);
 	$m_company->name = $company->name;
 	$m_company->location = $company->location;
-	$m_company->collected = $company->collected;
-	$m_company->posted = $company->posted;
-	$m_company->lastposted = $company->lastposted;
+	$m_company->zipcode = $company->zipcode;
+	$m_company->city = $company->city;
+	$m_company->companywebsite = $company->companywebsite;
+	$m_company->owner_firstname = $company->owner_firstname;
+	$m_company->owner_lastname = $company->owner_lastname;
+	$m_company->owner_phone = $company->owner_phone;
+	$m_company->owner_email = $company->owner_email;
+	$m_company->manager_firstname = $company->manager_firstname;
+	$m_company->manager_lastname = $company->manager_lastname;
+	$m_company->manager_phone = $company->manager_phone;
+	$m_company->manager_email = $company->manager_email;
 	$m_company->save();
 	echo json_encode($m_company);
 }
