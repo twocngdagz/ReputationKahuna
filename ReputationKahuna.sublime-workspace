@@ -44,14 +44,6 @@
 	"buffers":
 	[
 		{
-			"file": "js/models/offline_review.js",
-			"settings":
-			{
-				"buffer_size": 723,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "tpl/OfflineReviewView.html",
 			"settings":
 			{
@@ -63,7 +55,15 @@
 			"file": "js/views/home.js",
 			"settings":
 			{
-				"buffer_size": 11949,
+				"buffer_size": 11964,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sample-tasks/client/js/tasks.js",
+			"settings":
+			{
+				"buffer_size": 12015,
 				"line_ending": "Windows"
 			}
 		},
@@ -76,26 +76,10 @@
 			}
 		},
 		{
-			"file": "/C/wamp/www/timesheet/index.html",
-			"settings":
-			{
-				"buffer_size": 2431,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "tpl/CompanyDialogView.html",
 			"settings":
 			{
-				"buffer_size": 4591,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/models/company.js",
-			"settings":
-			{
-				"buffer_size": 504,
+				"buffer_size": 4603,
 				"line_ending": "Windows"
 			}
 		},
@@ -103,7 +87,7 @@
 			"file": "api/index.php",
 			"settings":
 			{
-				"buffer_size": 2281,
+				"buffer_size": 3169,
 				"line_ending": "Windows"
 			}
 		},
@@ -145,6 +129,8 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/ReputationKahuna/js/models/offline_review.js",
+		"/C/wamp/www/ReputationKahuna/js/models/company.js",
 		"/C/wamp/www/BBT2013/bath-time.php",
 		"/C/wamp/www/BBT2013/car-travelling.php",
 		"/C/Users/tahmidkarim/web8/index.html",
@@ -173,6 +159,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"form",
 			"viewOptions",
 			"_configure",
 			"<%=",
@@ -199,38 +186,11 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/models/offline_review.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 723,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								563,
-								563
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "tpl/OfflineReviewView.html",
 					"semi_transient": false,
 					"settings":
@@ -242,8 +202,8 @@
 						"selection":
 						[
 							[
-								9161,
-								9142
+								3513,
+								3513
 							]
 						],
 						"settings":
@@ -252,26 +212,26 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2922.0,
+						"translation.y": 1219.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "js/views/home.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11949,
+						"buffer_size": 11964,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9749,
-								9749
+								8855,
+								8897
 							]
 						],
 						"settings":
@@ -280,7 +240,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3049.0,
+						"translation.y": 5704.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/wamp/www/sample-tasks/client/js/tasks.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 12015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								279,
+								279
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4548.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -316,19 +304,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/C/wamp/www/timesheet/index.html",
-					"semi_transient": true,
+					"file": "tpl/CompanyDialogView.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2431,
+						"buffer_size": 4603,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1890,
-								1890
+								785,
+								785
 							]
 						],
 						"settings":
@@ -337,82 +325,26 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "tpl/CompanyDialogView.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4370,
-								4370
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1371.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "js/models/company.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 504,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								361,
-								361
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "api/index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2281,
+						"buffer_size": 3169,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								459,
-								459
+								1875,
+								1875
 							]
 						],
 						"settings":
@@ -421,13 +353,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1080.0,
+						"translation.y": 769.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 6,
 					"file": "js/app.js",
 					"semi_transient": false,
 					"settings":
