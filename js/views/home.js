@@ -236,12 +236,39 @@ directory.OfflineReviewView = Backbone.View.extend({
 			$('#ul-offline-review').remove();
 		});
 	},
+	events: {
+		"click #save-action-offline": "save",
+		"change input": "modify",
+		"click #close-action, .close": "close"
+	},
 	
 	render: function() {
 		this.$el.html(this.template);
 		this.$el.find('#colorpicker-js').colorpicker();
 		return this;
-	}
+	},
+	modify: function(e) {
+		var attribute = {};
+		attribute[e.currentTarget.name] = e.currentTarget.value;
+		directory.previous_attr[e.currentTarget.name] = this.model.attributes[e.currentTarget.name];
+		console.log(directory.previous_attr);
+		this.model.set(attribute);
+	},
+	save: function(e) {
+		e.preventDefault();
+		console.log('save dialog company');
+		if (null == this.model.id) {
+			directory.companyList.create(this.model);
+		} else {
+			this.model.save();
+		}
+		$('#myModal').modal('hide');
+	},
+	close: function() {
+		this.cancel();
+		this.model.set(directory.previous_attr);
+		$('#myModal').modal('hide');
+	} 
 });
 
 directory.CompanyDialogView = Backbone.View.extend({
@@ -257,7 +284,7 @@ directory.CompanyDialogView = Backbone.View.extend({
 	}, 
 	
 	events: {
-		"click #save-action": "save",
+		"click #save-action-company": "save",
 		"change input": "modify",
 		"click #close-action, .close": "close"
 	},
@@ -272,6 +299,7 @@ directory.CompanyDialogView = Backbone.View.extend({
 	},
 	
 	save: function(e) {
+		e.preventDefault();
 		console.log('save dialog company');
 		if (null == this.model.id) {
 			directory.companyList.create(this.model);
@@ -296,7 +324,7 @@ directory.CompanyDialogView = Backbone.View.extend({
 
 directory.CompanyItemView = Backbone.View.extend({
 	tagName: 'tr',
-	initialize: function() {
+	initialize: function(options) {
 		console.log('Initialize CompanyList View');
 		this.render = _.bind(this.render, this);
 		this.model.bind('change', this.render);
@@ -317,7 +345,9 @@ directory.CompanyItemView = Backbone.View.extend({
 		$('#dialogtabid').append("<li id=\"ul-company-info\" class=\"active\"><a class=\"glyphicons user\" href=\"#company-info\" data-toggle=\"tab\"><i></i>Company Info</a></li>");
 		$('#dialogtabid').append("<li id=\"ul-offline-review\"><a class=\"glyphicons user\" href=\"#offline-review\" data-toggle=\"tab\"><i></i>Offline Review Page</a></li>");
 		$('#tab-content-id').append(new directory.CompanyDialogView({model: this.model}).render().el);
-		$('#tab-content-id').append(new directory.OfflineReviewView({model: this.options.offlinereview}).render().el);
+		directory.offlinereview = new directory.OfflineReview({id: this.model.get('id')});
+		directory.offlinereview.fetch();
+		$('#tab-content-id').append(new directory.OfflineReviewView({model: directory.offlinereview}).render().el);
 		CKEDITOR.replace('special-offer-html');
 		CKEDITOR.replace('disclaimer');
 		CKEDITOR.replace('term-service');
@@ -334,7 +364,23 @@ directory.CompanyItemView = Backbone.View.extend({
 	},
 	addModal: function(e) {
 		e.preventDefault();
-		$('#myModal').html(new directory.CompanyDialogView({model: new directory.Company()}).render().el);
+		$('#dialogtabid').append("<li id=\"ul-company-info\" class=\"active\"><a class=\"glyphicons user\" href=\"#company-info\" data-toggle=\"tab\"><i></i>Company Info</a></li>");
+		$('#dialogtabid').append("<li id=\"ul-offline-review\"><a class=\"glyphicons user\" href=\"#offline-review\" data-toggle=\"tab\"><i></i>Offline Review Page</a></li>");
+		$('#tab-content-id').append(new directory.CompanyDialogView({model: new directory.Company()}).render().el);
+		$('#tab-content-id').append(new directory.OfflineReviewView({model: new directory.OfflineReview()}).render().el);
+		CKEDITOR.replace('special-offer-html');
+		CKEDITOR.replace('disclaimer');
+		CKEDITOR.replace('term-service');
+		if ($('#colorpicker').size() > 0)
+			$('#colorpicker').farbtastic('#colorpickerColor');
+		if ($('.colorpicker').size() > 0) {
+			$('#cp1').colorpicker();
+			$('#cp2').colorpicker();
+			$('#cp3').colorpicker();
+			$('.dropdown-menu').css('z-index','9999');
+		}
+		$('.toggle-button').toggleButtons();
+		$('#myModalLabel').html("Add Company");
 	},
 	deleteCompany: function(e) {
 		e.preventDefault();
@@ -361,7 +407,7 @@ directory.CompanyListView = Backbone.View.extend({
 	},
 	
 	add: function(company) { 
-		var companyItem = new directory.CompanyItemView({model: company, offlinereview: new directory.OfflineReview()});
+		var companyItem = new directory.CompanyItemView({model: company});
 		this._companies.push(companyItem);
 		if(this._rendered) {
 			$(this.el).append(companyItem.render().el);

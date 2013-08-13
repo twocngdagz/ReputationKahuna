@@ -4,9 +4,17 @@ directory.Company = Backbone.Model.extend({
 		id: null,
 		name: '',
 		location: '',
-		collected: '',
-		posted: '',
-		lastposted: ''
+		zipcode: '',
+		city: '',
+		companywebsite: '',
+		owner_firstname: '',
+		owner_lastname: '',
+		owner_phone: '',
+		owner_email: '',
+		manager_firstname: '',
+		manager_lastname: '',
+		manager_phone: '',
+		manager_email:''
 	}
 });
 

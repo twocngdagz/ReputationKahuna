@@ -3,11 +3,11 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "C:\\wamp\\www\\ReputationKahuna"
+			"path": "C:\\wamp\\www\\BBT2013"
 		},
 		{
 			"follow_symlinks": true,
-			"path": "C:\\wamp\\www\\php-authentication-system"
+			"path": "C:\\wamp\\www\\ReputationKahuna"
 		},
 		{
 			"follow_symlinks": true,
@@ -15,19 +15,7 @@
 		},
 		{
 			"follow_symlinks": true,
-			"path": "C:\\wamp\\www\\sample-tasks"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "C:\\wamp\\www\\backbone-cellar"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "C:\\wamp\\www\\BBT2013"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "C:\\Users\\ROY\\Documents\\My Dropbox\\crawler"
+			"path": "C:\\wamp\\www\\timesheet"
 		}
 	]
 }
