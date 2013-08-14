@@ -20,6 +20,14 @@
 		{
 			"follow_symlinks": true,
 			"path": "C:\\wamp\\www\\sample-tasks"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\storm-twitter"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\AutoTrading"
 		}
 	]
 }

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"tw",
+				"tweet"
+			],
+			[
+				"f",
+				"foreach	foreach …"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
 				"Off",
 				"OfflineReview"
 			],
@@ -44,58 +56,69 @@
 	"buffers":
 	[
 		{
-			"file": "tpl/OfflineReviewView.html",
+			"file": "/C/wamp/www/storm-twitter/sample.php",
 			"settings":
 			{
-				"buffer_size": 9379,
+				"buffer_size": 1109,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/views/home.js",
+			"file": "/C/wamp/www/BBT2013/core/view/home.php",
 			"settings":
 			{
-				"buffer_size": 11964,
+				"buffer_size": 50498,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/wamp/www/sample-tasks/client/js/tasks.js",
+			"file": "/C/wamp/www/BBT2013/categories.php",
 			"settings":
 			{
-				"buffer_size": 12015,
+				"buffer_size": 4708,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "library/backbone.js",
+			"contents": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<title>Easy Installation - Auto Trading Made Easy</title>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<link href=\"install-style.css\" rel=\"stylesheet\" type=\"text/css\" />\n<script type=\"text/javascript\" language=\"javascript\" src=\"../js/jquery-1.7.1.min.js\"></script>\n<script type=\"text/javascript\">\n$(function(){\n$('#finishintall').click(function(){\n	var adminusername=$.trim($('input#adminusername').val());\n	var adminpassword=$.trim($('input#adminpassword').val());\n	var websitename=$.trim($('input#websitename').val());\n	var errorMessage=\"Please specify: \";\n	\n	if(adminusername.length<=0) errorMessage=errorMessage+\"\\nAdmin Username\";\n	if(adminpassword.length<6) errorMessage=errorMessage+\"\\nAdmin Password (atleast 6 characters)\";\n	if(websitename.length<=0) errorMessage=errorMessage+\"\\nWebsite Name\";\n	\n	if(errorMessage.length>18){\n	    alert(errorMessage);\n	    return false;\n   }else{\n		return true;\n	   }\n});\n	\n});\n</script>\n</head>\n<body>\n<div id='container'>\n<h2>Step 2</h2>\n<?php\nerror_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));\n\n$host=trim($_POST['host']);\n$dbname=trim($_POST['dbname']);\n$dbusername=trim($_POST['dbusername']);\n$dbpassword=trim($_POST['dbpassword']);\n$errorMessage=\"\";\n\nif(strlen($host)<=0) $errorMessage=$errorMessage.\"<br />Host\";\nif(strlen($dbname)<=0) $errorMessage=$errorMessage.\"<br />MySQL Database Name\";\nif(strlen($dbusername)<=0) $errorMessage=$errorMessage.\"<br />MySQL Database Username\";\nif(strlen($dbpassword)<=0) $errorMessage=$errorMessage.\"<br />MySQL Database Password\";\n\nif(strlen($errorMessage)>1){\n	print \"<p align='center'><b>Please specify:</b><br />$errorMessage<br /><br />\n	<a href='javascript:history.go(-1);'><b>Try again</b></a></p>\";\n}else{\n	$con=mysql_connect($host,$dbusername,$dbpassword) or die(\"Could not connect. Check the values you specified on previous page. <a href='javascript:history.go(-1);'><b>Try again</b></a><br /><br />(\".mysql_errno().\": \".mysql_error().\")\");\n	mysql_select_db($dbname,$con);\n	include(\"createTables.php\");\n	$result1 = mysql_query($admin_options);\n	$result2 = mysql_query($listing);\n	$result3 = mysql_query($member);\n	$result4 = mysql_query($language);\n	$result5 = mysql_query($pricerange);\n	$result6= mysql_query($categoryTable);\n	$result7= mysql_query($bodytype);\n	$result8= mysql_query($features);\n	$result9= mysql_query($fueltype);\n	$result10= mysql_query($pages);\n	\n	if($result1 && $result2 && $result3 && $result4 && $result5 && $result6 && $result7 && $result8 && $result9 && $result10){\n		include(\"createUser.php\");\n		translate(\"all_languages\",$host,$dbusername,$dbpassword,$dbname);\n		\n	}else{\n		if(!$result1) print \"Couldn't create table: <b>admin_options</b><br />\";\n		if(!$result2) print \"Couldn't create table: <b>listing</b><br />\";\n		if(!$result3) print \"Couldn't create table: <b>member</b><br />\";\n		if(!$result4) print \"Couldn't create table: <b>language</b><br />\";\n		if(!$result5) print \"Couldn't create table: <b>pricerange</b><br />\";\n		if(!$result6) print \"Couldn't create table: <b>category table</b><br />\";\n		if(!$result7) print \"Couldn't create table: <b>body type table</b><br />\";\n		if(!$result8) print \"Couldn't create table: <b>features table</b><br />\";\n		if(!$result9) print \"Couldn't create table: <b>fuel type table</b><br />\";\n		if(!$result10) print \"Couldn't create table: <b>page table</b><br />\";\n		print mysql_errno().\" - \".mysql_error();\n	}\n	\n}\n\nfunction translate($dir,$host,$dbusername,$dbpassword,$dbname) {\n	$i=0;\n	$con=mysql_connect($host,$dbusername,$dbpassword) or die(\"Could not connect. Please try again.\");\n	mysql_select_db($dbname,$con);\n	mysql_query(\"SET NAMES utf8\");\n\n	global $source, $overwriteOnly, $repFile;\n	foreach(scandir($dir) as $filename) {\n		if ($filename !== '.' AND $filename !== '..' ) {\n			\n			list($keyword,$extn)=explode(\".\",$filename);\n			$filename=$dir.\"/\".$filename;\n			//print \"Processing $filename : \";\n			$fh = fopen($filename, 'r');\n			while(! feof($fh)){\n			$language=trim(fgets($fh));\n			list($language,$temp1)=explode(\":\",$language);\n			$translation=addslashes(trim(fgets($fh)));\n			//print \"$language - $translation<br />\";\n			$qr=\"insert into languages (keyword,language,translation) values ('$keyword','$language','$translation')\";\n			$result=mysql_query($qr);\n\n			}\n		fclose($fh);\n\n     }\n     $i++;\n  \n		}\n\n	}\n?>\n</div>\n</body>\n</html>",
+			"file": "/C/wamp/www/AutoTrading/install/completeinstall.php",
+			"file_size": 4661,
+			"file_write_time": 130209693167540523,
 			"settings":
 			{
-				"buffer_size": 59498,
+				"buffer_size": 4526,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "tpl/CompanyDialogView.html",
+			"file": "/C/wamp/www/BBT2013/cart.php",
 			"settings":
 			{
-				"buffer_size": 4603,
+				"buffer_size": 4184,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "api/index.php",
+			"file": "/C/wamp/www/BBT2013/html/html.header.php",
 			"settings":
 			{
-				"buffer_size": 3169,
+				"buffer_size": 5570,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/app.js",
+			"file": "/C/wamp/www/BBT2013/html/html.footer.php",
 			"settings":
 			{
-				"buffer_size": 1901,
+				"buffer_size": 10380,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/BBT2013/inc/classes/StormTwitter.php",
+			"settings":
+			{
+				"buffer_size": 5534,
 				"line_ending": "Windows"
 			}
 		}
@@ -129,6 +152,12 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/ReputationKahuna/js/app.js",
+		"/C/wamp/www/ReputationKahuna/api/index.php",
+		"/C/wamp/www/ReputationKahuna/tpl/CompanyDialogView.html",
+		"/C/wamp/www/ReputationKahuna/library/backbone.js",
+		"/C/wamp/www/ReputationKahuna/tpl/OfflineReviewView.html",
+		"/C/wamp/www/ReputationKahuna/js/views/home.js",
 		"/C/wamp/www/ReputationKahuna/js/models/offline_review.js",
 		"/C/wamp/www/ReputationKahuna/js/models/company.js",
 		"/C/wamp/www/BBT2013/bath-time.php",
@@ -159,6 +188,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Sweet Jojo",
+			"Sweet",
 			"form",
 			"viewOptions",
 			"_configure",
@@ -186,165 +217,51 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "tpl/OfflineReviewView.html",
+					"file": "/C/wamp/www/storm-twitter/sample.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9379,
+						"buffer_size": 1109,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3513,
-								3513
+								865,
+								865
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1219.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "js/views/home.js",
+					"file": "/C/wamp/www/BBT2013/core/view/home.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11964,
+						"buffer_size": 50498,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8855,
-								8897
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5704.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/wamp/www/sample-tasks/client/js/tasks.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 12015,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								279,
-								279
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4548.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "library/backbone.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 59498,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								40090,
-								40101
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 15934.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "tpl/CompanyDialogView.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4603,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								785,
-								785
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "api/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1875,
-								1875
+								18466,
+								18466
 							]
 						],
 						"settings":
@@ -353,35 +270,178 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 769.0,
+						"translation.y": 6017.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "js/app.js",
-					"semi_transient": false,
+					"buffer": 2,
+					"file": "/C/wamp/www/BBT2013/categories.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1901,
+						"buffer_size": 4708,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								671,
-								671
+								185,
+								185
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/wamp/www/AutoTrading/install/completeinstall.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4526,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1410,
+								1410
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/wamp/www/BBT2013/cart.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/wamp/www/BBT2013/html/html.header.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5570,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3656,
+								3691
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1350.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/wamp/www/BBT2013/html/html.footer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5499,
+								5499
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1825.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/wamp/www/BBT2013/inc/classes/StormTwitter.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								296,
+								284
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -395,7 +455,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
